@@ -12,6 +12,10 @@ import {
   Building2,
   Users,
   ArrowUpDown,
+  Sparkles,
+  TrendingUp,
+  ExternalLink,
+  Zap,
 } from "lucide-react";
 import { JobUI } from "@/types/job.ui";
 import { ApplicationStatus, User, Profile } from "@prisma/client";
@@ -36,8 +40,9 @@ export default function JobDetail({
       return (
         <Link
           href="/login"
-          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-eduBlue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold text-lg py-4 rounded-xl transition-all"
+          className="group w-full flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-500 hover:via-purple-500 hover:to-indigo-500 text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.02]"
         >
+          <Sparkles className="w-5 h-5 group-hover:animate-pulse" />
           Login to Apply
         </Link>
       );
@@ -48,32 +53,32 @@ export default function JobDetail({
     switch (applicationStatus) {
       case "APPLIED":
         return (
-          <div className="flex items-center justify-center gap-2 bg-emerald-100 text-emerald-700 py-4 rounded-xl font-semibold border border-emerald-200">
+          <div className="flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-4 rounded-xl font-semibold shadow-lg shadow-emerald-500/25">
             <CheckCircle className="w-5 h-5" />
-            Applied
+            Applied Successfully
           </div>
         );
 
       case "REVIEWED":
         return (
-          <div className="flex items-center justify-center gap-2 bg-blue-100 text-blue-700 py-4 rounded-xl font-semibold border border-blue-200">
-            <CheckCircle className="w-5 h-5" />
+          <div className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-xl font-semibold shadow-lg shadow-blue-500/25 animate-pulse">
+            <Clock className="w-5 h-5" />
             Under Review
           </div>
         );
 
       case "ACCEPTED":
         return (
-          <div className="flex items-center justify-center gap-2 bg-green-100 text-green-700 py-4 rounded-xl font-semibold border border-green-200">
+          <div className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-xl font-semibold shadow-lg shadow-green-500/25">
             <CheckCircle className="w-5 h-5" />
-            Accepted
+            Congratulations! Accepted
           </div>
         );
 
       case "REJECTED":
         return (
-          <div className="flex items-center justify-center gap-2 bg-red-100 text-red-700 py-4 rounded-xl font-semibold border border-red-200">
-            Rejected
+          <div className="flex items-center justify-center gap-2 bg-gradient-to-r from-red-500 to-rose-500 text-white py-4 rounded-xl font-semibold shadow-lg shadow-red-500/25">
+            Application Rejected
           </div>
         );
 
@@ -82,9 +87,9 @@ export default function JobDetail({
           <form action={applyJob.bind(null, job.id)}>
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-eduBlue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold text-lg py-4 rounded-xl transition-all"
+              className="group w-full flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-500 hover:via-purple-500 hover:to-indigo-500 text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.02]"
             >
-              <Send className="w-5 h-5" />
+              <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               Apply Now
             </button>
           </form>
@@ -121,42 +126,46 @@ export default function JobDetail({
     : "#";
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-20">
-      {/* Header */}
-      <div className="bg-slate-900 text-white border-b border-slate-800 relative z-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-11.25">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 pb-20">
+      {/* Header with gradient and pattern */}
+      <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative z-0 overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl" />
+        </div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNCI+PHBhdGggZD0iTTM2IDM0djItSDJ2LTJoMzR6bTAtNHYySDJ2LTJoMzR6bTAtNHYySDJ2LTJoMzR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-50" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
           <BackButton />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-2 space-y-6">
-              <div className="flex items-center gap-3">
-                <span className="bg-eduBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              <div className="flex items-center gap-3 flex-wrap">
+                <span className="bg-gradient-to-r from-violet-500 to-purple-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-purple-500/30">
                   {job.category.name}
+                </span>
+                <span className="bg-white/10 backdrop-blur-sm text-white/90 text-xs font-medium px-3 py-1.5 rounded-full border border-white/20">
+                  <Zap className="w-3 h-3 inline mr-1" />
+                  Active
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-4xl font-extrabold tracking-tight leading-tight text-white">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow-lg">
                 {job.title}
               </h1>
 
-              <div className="flex flex-wrap gap-4 text-sm text-slate-300">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  {job.location?.toUpperCase() ??
-                    job.user.profile?.companyAddress?.toUpperCase() ??
-                    "JOB LOCATION"}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Briefcase className="w-4 h-4" />
-                  {job.level || "ANY"}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  {job.type.replace("_", " ")}
-                </div>
-                <div className="flex items-center gap-2">
-                  <ArrowUpDown className="w-4 h-4" />
-                  {job.workMode}
-                </div>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { icon: MapPin, text: job.location?.toUpperCase() ?? job.user.profile?.companyAddress?.toUpperCase() ?? "LOCATION" },
+                  { icon: Briefcase, text: job.level || "ANY LEVEL" },
+                  { icon: Clock, text: job.type.replace("_", " ") },
+                  { icon: ArrowUpDown, text: job.workMode },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/10 text-sm text-white/90">
+                    <item.icon className="w-4 h-4 text-purple-300" />
+                    {item.text}
+                  </div>
+                ))}
               </div>
             </div>
             <div className="lg:col-span-1 hidden lg:block"></div>
@@ -169,116 +178,79 @@ export default function JobDetail({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Side - Details & Overview */}
           <div className="lg:col-span-2 py-12 space-y-8">
+            {/* Stats Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="group relative bg-gradient-to-br from-blue-500 to-indigo-600 p-6 rounded-2xl shadow-xl shadow-blue-500/20 overflow-hidden hover:shadow-blue-500/30 transition-all hover:scale-[1.02]">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+                <div className="relative">
+                  <div className="flex items-center gap-2 text-blue-100 text-sm font-medium mb-2">
+                    <Users className="w-4 h-4" />
+                    Total Applied
+                  </div>
+                  <span className="block text-5xl font-black text-white">
+                    {job.applicators}
+                  </span>
+                </div>
+              </div>
+
+              <div className="group relative bg-gradient-to-br from-emerald-500 to-teal-600 p-6 rounded-2xl shadow-xl shadow-emerald-500/20 overflow-hidden hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+                <div className="relative">
+                  <div className="flex items-center gap-2 text-emerald-100 text-sm font-medium mb-2">
+                    <TrendingUp className="w-4 h-4" />
+                    Got Hired
+                  </div>
+                  <span className="block text-5xl font-black text-white">
+                    {job.hired}
+                  </span>
+                </div>
+              </div>
+            </div>
+
             {/* Details Card */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/50">
-                <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                  <Briefcase className="w-5 h-5 text-slate-400" />
+            <div className="bg-white rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-900/5 overflow-hidden">
+              <div className="px-6 py-5 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
+                <h2 className="text-lg font-bold text-slate-900 flex items-center gap-3">
+                  <div className="p-2 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg shadow-lg shadow-purple-500/30">
+                    <Briefcase className="w-5 h-5 text-white" />
+                  </div>
                   Job Details
                 </h2>
               </div>
               <div className="p-6">
-                {/* Applied & Hired Stats */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
-                    <span className="block text-3xl font-bold text-slate-900">
-                      {job.applicators}
-                    </span>
-                    <span className="text-sm text-slate-500 font-medium">
-                      Applied
-                    </span>
-                  </div>
-                  <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-center">
-                    <span className="block text-3xl font-bold text-emerald-700">
-                      {job.hired}
-                    </span>
-                    <span className="text-sm text-emerald-600 font-medium">
-                      Hired
-                    </span>
-                  </div>
-                </div>
-
-                {/* Other Details */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-green-50 text-green-600 rounded-lg">
-                      <Banknote className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-500 font-semibold uppercase">
-                        Salary
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  {[
+                    { icon: Banknote, label: "Salary", value: formatPaycheck(job.paycheckMin, job.paycheckMax), gradient: "from-green-400 to-emerald-500", shadow: "shadow-green-500/30" },
+                    { icon: MapPin, label: "Location", value: job.location ?? job.user.profile?.companyAddress ?? "Job Location", gradient: "from-blue-400 to-indigo-500", shadow: "shadow-blue-500/30" },
+                    { icon: Briefcase, label: "Level", value: job.level?.toLowerCase() || "Any", gradient: "from-purple-400 to-violet-500", shadow: "shadow-purple-500/30" },
+                    { icon: Clock, label: "Type", value: job.type.replace("_", " ").toLowerCase(), gradient: "from-amber-400 to-orange-500", shadow: "shadow-orange-500/30" },
+                    { icon: ArrowUpDown, label: "Work Mode", value: job.workMode.toLowerCase(), gradient: "from-cyan-400 to-teal-500", shadow: "shadow-cyan-500/30" },
+                  ].map((item, i) => (
+                    <div key={i} className="group p-4 bg-gradient-to-br from-slate-50 to-white rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all">
+                      <div className={`inline-flex p-2.5 bg-gradient-to-br ${item.gradient} rounded-xl shadow-lg ${item.shadow} mb-3 group-hover:scale-110 transition-transform`}>
+                        <item.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-1">
+                        {item.label}
                       </p>
-                      <p className="font-bold text-slate-900 text-sm">
-                        {formatPaycheck(job.paycheckMin, job.paycheckMax)}
+                      <p className="font-bold text-slate-900 capitalize truncate">
+                        {item.value}
                       </p>
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
-                      <MapPin className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-500 font-semibold uppercase">
-                        Location
-                      </p>
-                      <p className="font-bold text-slate-900 text-sm capitalize truncate max-w-[120px]">
-                        {job.location ??
-                          job.user.profile?.companyAddress ??
-                          "Job Location"}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-purple-50 text-purple-600 rounded-lg">
-                      <Briefcase className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-500 font-semibold uppercase">
-                        Level
-                      </p>
-                      <p className="font-bold text-slate-900 text-sm capitalize">
-                        {job.level?.toLowerCase() || "Any"}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-amber-50 text-amber-600 rounded-lg">
-                      <Clock className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-500 font-semibold uppercase">
-                        Type
-                      </p>
-                      <p className="font-bold text-slate-900 text-sm capitalize">
-                        {job.type.replace("_", " ").toLowerCase()}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-cyan-50 text-cyan-600 rounded-lg">
-                      <ArrowUpDown className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-500 font-semibold uppercase">
-                        Work Mode
-                      </p>
-                      <p className="font-bold text-slate-900 text-sm capitalize">
-                        {job.workMode.toLowerCase()}
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
 
             {/* Overview - Job Description */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/50">
-                <h2 className="text-lg font-bold text-slate-900">
+            <div className="bg-white rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-900/5 overflow-hidden">
+              <div className="px-6 py-5 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
+                <h2 className="text-lg font-bold text-slate-900 flex items-center gap-3">
+                  <div className="p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg shadow-lg shadow-blue-500/30">
+                    <Sparkles className="w-5 h-5 text-white" />
+                  </div>
                   Job Overview
                 </h2>
               </div>
@@ -294,93 +266,102 @@ export default function JobDetail({
           <div className="lg:col-span-1 lg:order-last relative lg:pb-12">
             <div className="relative lg:-mt-48 z-10 lg:sticky top-24 self-start space-y-4">
               {/* Company Profile Card */}
-              <div className="bg-white rounded-2xl border border-slate-200/60 shadow-2xl shadow-slate-900/5 overflow-hidden">
-                <div className="p-6 flex flex-col gap-6">
-                  {/* Company Header */}
-                  <div className="flex gap-4 items-center">
-                    <div className="w-16 h-16 shrink-0 rounded-xl border border-slate-100 bg-slate-50 p-2 flex items-center justify-center">
+              <div className="bg-white rounded-2xl border border-slate-200/60 shadow-2xl shadow-slate-900/10 overflow-hidden">
+                {/* Gradient Header */}
+                <div className="h-24 bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzR2LTJIMXY0aDM0ek0wIDI4djJoMzZ2LTJIMHptMC04djJoMzZ2LTJIMHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-50" />
+                  <div className="absolute -bottom-12 left-6">
+                    <div className="w-20 h-20 rounded-2xl border-4 border-white bg-white shadow-xl overflow-hidden">
                       <img
                         src={job.user.profile?.pictureUrl || "/avatars/male.svg"}
                         alt="Company Logo"
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-lg font-bold text-slate-900 truncate">
-                        {job.user.profile?.name || "Company Name"}
-                      </p>
-                      <p className="text-slate-500 text-sm flex items-center gap-1.5 truncate">
-                        <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
-                        {job.user.profile?.companyAddress || "Address"}
-                      </p>
-                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-14 p-6 flex flex-col gap-5">
+                  {/* Company Info */}
+                  <div>
+                    <p className="text-xl font-bold text-slate-900">
+                      {job.user.profile?.name || "Company Name"}
+                    </p>
+                    <p className="text-slate-500 text-sm flex items-center gap-1.5 mt-1">
+                      <MapPin className="w-4 h-4 text-slate-400" />
+                      {job.user.profile?.companyAddress || "Address"}
+                    </p>
                   </div>
 
                   {/* Company Stats */}
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-center">
-                      <div className="text-2xl font-bold text-slate-900">
+                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200/60 text-center group hover:border-purple-200 hover:from-purple-50 hover:to-violet-50 transition-all">
+                      <div className="text-3xl font-black bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
                         {job.user.profile?.totalJobs || 0}
                       </div>
-                      <div className="text-xs text-slate-500 font-medium">
+                      <div className="text-xs text-slate-500 font-semibold mt-1">
                         Jobs Posted
                       </div>
                     </div>
-                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-center">
-                      <div className="text-2xl font-bold text-slate-900">
+                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200/60 text-center group hover:border-emerald-200 hover:from-emerald-50 hover:to-teal-50 transition-all">
+                      <div className="text-3xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                         {Math.round(hireRate) || 0}%
                       </div>
-                      <div className="text-xs text-slate-500 font-medium">
+                      <div className="text-xs text-slate-500 font-semibold mt-1">
                         Hire Rate
                       </div>
                     </div>
                   </div>
 
-                  {/* Company Details */}
-                  <div className="pt-4 border-t border-slate-200/60 space-y-4">
-                    <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
+                  {/* About */}
+                  <div className="pt-4 border-t border-slate-100">
+                    <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
                       About Company
                     </h3>
                     <p className="text-slate-600 text-sm leading-relaxed line-clamp-4">
                       {job.user.profile?.bio || "No company description available."}
                     </p>
+                  </div>
 
+                  {/* Actions */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
                     {job.user.profile?.companyWebsite && (
                       <a
                         href={websiteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-eduBlue hover:text-blue-700 transition-colors text-sm font-medium"
+                        className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-slate-100 to-slate-50 hover:from-slate-200 hover:to-slate-100 text-slate-700 py-3 rounded-xl font-semibold text-sm transition-all border border-slate-200"
                       >
                         <Globe className="w-4 h-4" />
-                        Visit Website
+                        Website
+                        <ExternalLink className="w-3 h-3" />
                       </a>
                     )}
                   </div>
 
                   {/* Last Updated */}
-                  <div className="flex items-center justify-between text-sm pt-4 border-t border-slate-200/60">
-                    <div className="flex items-center gap-2 text-slate-500">
-                      <Clock className="w-4 h-4 text-slate-400" />
-                      <span>Last Updated</span>
-                    </div>
-                    <span className="font-semibold text-slate-900">
-                      {new Date(job.updatedAt).toLocaleDateString("en-US", {
-                        month: "short",
-                        year: "numeric",
-                      })}
-                    </span>
+                  <div className="flex items-center justify-center gap-2 text-xs text-slate-400 pt-2">
+                    <Clock className="w-3.5 h-3.5" />
+                    Updated {new Date(job.updatedAt).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
                   </div>
                 </div>
               </div>
 
               {/* Application Status / Apply Card */}
-              <div className="bg-white rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-900/5 overflow-hidden">
+              <div className="bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-900/5 overflow-hidden">
                 <div className="p-6 flex flex-col gap-4">
-                  <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                    <Users className="w-4 h-4 text-slate-400" />
-                    Application
-                  </h3>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg shadow-lg shadow-purple-500/30">
+                      <Users className="w-4 h-4 text-white" />
+                    </div>
+                    <h3 className="font-bold text-slate-900">
+                      Apply for this position
+                    </h3>
+                  </div>
 
                   {user && user.role === "EDUCATEE" && (
                     <>
@@ -388,13 +369,16 @@ export default function JobDetail({
                       !profile.name ||
                       !profile.gender ||
                       !profile.dob ? (
-                        <div className="text-sm text-red-600 bg-red-50 p-4 rounded-xl border border-red-100 font-medium text-center">
-                          Please complete your profile before applying for this position.
+                        <div className="text-sm bg-gradient-to-r from-red-50 to-rose-50 p-4 rounded-xl border border-red-200 text-center">
+                          <p className="text-red-600 font-medium">
+                            Complete your profile to apply
+                          </p>
                           <Link
                             href="/profile"
-                            className="block mt-2 text-eduBlue hover:text-blue-700 font-semibold"
+                            className="inline-flex items-center gap-1 mt-2 text-purple-600 hover:text-purple-700 font-bold text-sm"
                           >
-                            Complete Profile →
+                            Complete Profile
+                            <ExternalLink className="w-3 h-3" />
                           </Link>
                         </div>
                       ) : (
@@ -406,7 +390,7 @@ export default function JobDetail({
                   {!user && renderApplyButton()}
 
                   {user && user.role !== "EDUCATEE" && (
-                    <div className="text-sm text-slate-500 bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                    <div className="text-sm text-slate-500 bg-slate-100 p-4 rounded-xl text-center font-medium">
                       Only job seekers can apply to positions.
                     </div>
                   )}
