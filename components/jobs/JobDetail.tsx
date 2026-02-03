@@ -295,8 +295,8 @@ export default function JobDetail({
             Details
           </h3>
 
-          <div className="space-y-2.5 flex-1">
-            <div className="flex flex-col gap-0.5 pb-2 border-b border-slate-50 last:border-0 last:pb-0">
+          <div className="grid grid-cols-2 gap-4 flex-1 content-start">
+            <div className="flex flex-col gap-0.5">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
                 <MapPin className="w-3 h-3" /> Location
               </span>
@@ -307,7 +307,7 @@ export default function JobDetail({
               </span>
             </div>
 
-            <div className="flex flex-col gap-0.5 pb-2 border-b border-slate-50 last:border-0 last:pb-0">
+            <div className="flex flex-col gap-0.5">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
                 <Briefcase className="w-3 h-3" /> Level
               </span>
@@ -316,7 +316,7 @@ export default function JobDetail({
               </span>
             </div>
 
-            <div className="flex flex-col gap-0.5 pb-2 border-b border-slate-50 last:border-0 last:pb-0">
+            <div className="flex flex-col gap-0.5">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
                 <Clock className="w-3 h-3" /> Type
               </span>
@@ -325,7 +325,7 @@ export default function JobDetail({
               </span>
             </div>
 
-            <div className="flex flex-col gap-0.5 pb-2 border-b border-slate-50 last:border-0 last:pb-0">
+            <div className="flex flex-col gap-0.5">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
                 <Building2 className="w-3 h-3" /> Work Mode
               </span>
@@ -334,7 +334,7 @@ export default function JobDetail({
               </span>
             </div>
 
-            <div className="flex flex-col gap-0.5 pb-2 border-b border-slate-50 last:border-0 last:pb-0">
+            <div className="col-span-2 flex flex-col gap-0.5 pt-4 mt-auto border-t border-slate-50">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
                 <Banknote className="w-3 h-3" /> Salary
               </span>
