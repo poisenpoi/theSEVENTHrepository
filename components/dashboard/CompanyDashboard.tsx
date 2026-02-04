@@ -55,7 +55,7 @@ export default async function CompanyDashboard() {
       },
       applications: {
         select: {
-          createdAt: true,
+          appliedAt: true,
         },
       },
     },
@@ -97,7 +97,7 @@ export default async function CompanyDashboard() {
       return (
         sum +
         job.applications.filter((app) => {
-          const appDate = new Date(app.createdAt);
+          const appDate = new Date(app.appliedAt);
           return appDate >= weekStart && appDate < weekEnd;
         }).length
       );
