@@ -185,12 +185,12 @@ export default function JobDetail({
           <div className="lg:col-span-1 lg:order-last relative lg:pb-12">
             <div className="relative lg:-mt-48 z-10 lg:sticky top-24 self-start">
               <div className="bg-white rounded-2xl border border-slate-200/60 shadow-2xl shadow-slate-900/5 overflow-hidden">
-                <div className="p-8 flex flex-col gap-8">
+                <div className="p-6 flex flex-col gap-6">
                   <h3 className="text-xl font-bold text-slate-900">
                     Information
                   </h3>
 
-                  <div className="space-y-6">
+                  <div className="space-y-5">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-slate-100 rounded-xl">
                         <MapPin className="w-6 h-6 text-slate-500" />
@@ -264,7 +264,7 @@ export default function JobDetail({
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-slate-200/60">
+                  <div className="pt-5 border-t border-slate-200/60">
                     {!applicationStatus && renderApplyButton()}
                   </div>
                 </div>
