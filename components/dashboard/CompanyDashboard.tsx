@@ -124,14 +124,14 @@ export default async function CompanyDashboard() {
       </h1>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
         {/* Applicants Chart - 2/3 width */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 flex">
           <ApplicantsChart data={weeklyData} />
         </div>
 
         {/* Hired Pie Chart - 1/3 width */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 flex">
           <HiredPieChart hired={hiredCount} notHired={totalApplicants - hiredCount} />
         </div>
       </div>

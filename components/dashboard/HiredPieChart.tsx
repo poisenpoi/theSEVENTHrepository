@@ -18,7 +18,7 @@ export function HiredPieChart({ hired, notHired }: HiredPieChartProps) {
   const total = hired + notHired;
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full flex flex-col">
+    <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full w-full flex flex-col">
       <h3 className="text-lg font-bold text-slate-900 mb-4">
         Hiring Overview
       </h3>

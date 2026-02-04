@@ -21,7 +21,7 @@ interface ApplicantsChartProps {
 
 export function ApplicantsChart({ data }: ApplicantsChartProps) {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full">
+    <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full w-full">
       <h3 className="text-lg font-bold text-slate-900 mb-4">
         Weekly Applicants
       </h3>
