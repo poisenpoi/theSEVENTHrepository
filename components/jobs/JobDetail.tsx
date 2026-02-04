@@ -117,7 +117,7 @@ export default function JobDetail({
     }
 
     return (
-      <div className="mt-5 bg-white rounded-2xl border border-slate-200/60 shadow-lg shadow-slate-900/5 p-6">
+      <div className="mt-8 bg-white rounded-2xl border border-slate-200/60 shadow-lg shadow-slate-900/5 p-6">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
           Application Status
         </h3>
