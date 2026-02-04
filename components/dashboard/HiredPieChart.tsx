@@ -30,9 +30,7 @@ export function HiredPieChart({ hired, notHired }: HiredPieChartProps) {
                 data={data}
                 cx="50%"
                 cy="50%"
-                innerRadius={50}
                 outerRadius={80}
-                paddingAngle={2}
                 dataKey="value"
                 strokeWidth={0}
               >
