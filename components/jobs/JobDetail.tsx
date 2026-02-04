@@ -274,9 +274,9 @@ export default function JobDetail({
             </div>
           </div>
 
-          <div className="lg:col-span-2 py-12 space-y-6">
+          <div className="lg:col-span-2 py-12 space-y-8">
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-              <div className="p-6">
+              <div className="p-8">
                 <div className="flex gap-4 items-start">
                   <div className="w-16 h-16 shrink-0 rounded-xl border border-slate-200 bg-slate-50 p-2 flex items-center justify-center">
                     <img
@@ -309,14 +309,14 @@ export default function JobDetail({
                   </div>
                 </div>
 
-                <div className="mt-5 pt-5 border-t border-slate-100">
+                <div className="mt-6 pt-6 border-t border-slate-100">
                   <p className="text-slate-600 text-sm leading-relaxed">
                     {job.user.profile?.bio || "No company bio available."}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-5 border-t border-slate-100 grid grid-cols-2 gap-4">
-                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-2 gap-4">
+                  <div className="bg-slate-50 p-5 rounded-xl border border-slate-100 text-center">
                     <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-1">
                       Jobs Posted
                     </p>
@@ -324,7 +324,7 @@ export default function JobDetail({
                       {job.user.profile?.totalJobs || 0}
                     </p>
                   </div>
-                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                  <div className="bg-slate-50 p-5 rounded-xl border border-slate-100 text-center">
                     <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-1">
                       Hire Rate
                     </p>
@@ -336,7 +336,7 @@ export default function JobDetail({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-6">
               <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 text-center">
                 <p className="text-sm font-semibold text-slate-600 mb-3">
                   Applicants
