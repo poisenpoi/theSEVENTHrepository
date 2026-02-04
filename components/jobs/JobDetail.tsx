@@ -274,7 +274,7 @@ export default function JobDetail({
             </div>
           </div>
 
-          <div className="lg:col-span-2 py-12 space-y-6">
+          <div className="lg:col-span-2 py-12 space-y-8">
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="p-8">
                 <div className="flex gap-4 items-start">
@@ -286,7 +286,7 @@ export default function JobDetail({
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h2 className="text-xl font-bold text-slate-900">
+                    <h2 className="text-lg font-bold text-slate-900">
                       {job.user.profile?.name || "Company Name"}
                     </h2>
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1">
@@ -320,7 +320,7 @@ export default function JobDetail({
                     <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-1">
                       Jobs Posted
                     </p>
-                    <p className="text-2xl font-bold text-slate-900">
+                    <p className="text-xl font-bold text-slate-900">
                       {job.user.profile?.totalJobs || 0}
                     </p>
                   </div>
@@ -328,7 +328,7 @@ export default function JobDetail({
                     <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-1">
                       Hire Rate
                     </p>
-                    <p className="text-2xl font-bold text-slate-900">
+                    <p className="text-xl font-bold text-slate-900">
                       {Math.round(hireRate) || 0}%
                     </p>
                   </div>
@@ -346,7 +346,7 @@ export default function JobDetail({
                     <Users className="w-6 h-6 text-blue-600" />
                   </div>
                 </div>
-                <p className="text-3xl font-bold text-slate-900">
+                <p className="text-2xl font-bold text-slate-900">
                   {job.applicators}
                 </p>
               </div>
@@ -360,7 +360,7 @@ export default function JobDetail({
                     <UserCheck className="w-6 h-6 text-emerald-600" />
                   </div>
                 </div>
-                <p className="text-3xl font-bold text-emerald-600">
+                <p className="text-2xl font-bold text-emerald-600">
                   {job.hired}
                 </p>
               </div>
