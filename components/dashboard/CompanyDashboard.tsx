@@ -82,7 +82,6 @@ export default async function CompanyDashboard() {
 
   const hiredCount = jobs.reduce((sum, job) => sum + job.hired, 0);
 
-  // Generate weekly applicants data (last 8 weeks)
   const now = new Date();
   const weeklyData = [];
   for (let i = 7; i >= 0; i--) {
@@ -114,7 +113,6 @@ export default async function CompanyDashboard() {
     });
   }
 
-  // Remove applications from jobs for the card (not needed there)
   const jobsForCards = jobs.map(({ applications, ...job }) => job);
 
   return (
@@ -123,20 +121,16 @@ export default async function CompanyDashboard() {
         Company Dashboard
       </h1>
 
-      {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-        {/* Applicants Chart - 2/3 width */}
         <div className="lg:col-span-2 flex">
           <ApplicantsChart data={weeklyData} />
         </div>
 
-        {/* Hired Pie Chart - 1/3 width */}
         <div className="lg:col-span-1 flex">
           <HiredPieChart hired={hiredCount} notHired={totalApplicants - hiredCount} />
         </div>
       </div>
 
-      {/* Job Posts Section */}
       <div className="bg-slate-50 rounded-3xl border border-slate-200/60 p-6">
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-3">

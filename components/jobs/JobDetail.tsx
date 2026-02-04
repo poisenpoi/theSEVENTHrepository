@@ -156,7 +156,6 @@ export default function JobDetail({
 
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
-      {/* Hero Section */}
       <div className="bg-slate-900 text-white border-b border-slate-800 relative z-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-11.25">
           <BackButton />
@@ -183,10 +182,8 @@ export default function JobDetail({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Sticky Right Sidebar */}
           <div className="lg:col-span-1 lg:order-last relative lg:pb-12">
             <div className="relative lg:-mt-48 z-10 lg:sticky top-24 self-start">
-              {/* Information Card */}
               <div className="bg-white rounded-2xl border border-slate-200/60 shadow-2xl shadow-slate-900/5 overflow-hidden">
                 <div className="p-8 flex flex-col gap-8">
                   <h3 className="text-xl font-bold text-slate-900">
@@ -273,14 +270,11 @@ export default function JobDetail({
                 </div>
               </div>
 
-              {/* Application Status Card */}
               {renderStatusCard()}
             </div>
           </div>
 
-          {/* Left Side Content */}
           <div className="lg:col-span-2 py-12 space-y-6">
-            {/* Company Info Card */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="p-6">
                 <div className="flex gap-4 items-start">
@@ -342,7 +336,6 @@ export default function JobDetail({
               </div>
             </div>
 
-            {/* Applicants and Hired Stats Cards */}
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 text-center">
                 <p className="text-sm font-semibold text-slate-600 mb-3">
