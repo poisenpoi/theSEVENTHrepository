@@ -189,7 +189,7 @@ export default function JobDetail({
               {/* Information Card */}
               <div className="bg-white rounded-2xl border border-slate-200/60 shadow-2xl shadow-slate-900/5 overflow-hidden">
                 <div className="p-6 flex flex-col gap-6">
-                  <h3 className="text-xl font-bold text-slate-900">
+                  <h3 className="text-2xl font-bold text-slate-900">
                     Information
                   </h3>
 
