@@ -276,22 +276,22 @@ export default function JobDetail({
 
           <div className="lg:col-span-2 py-12 space-y-6">
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-              <div className="p-6">
-                <div className="flex gap-4 items-start">
-                  <div className="w-16 h-16 shrink-0 rounded-xl border border-slate-200 bg-slate-50 p-2 flex items-center justify-center">
+              <div className="p-8">
+                <div className="flex gap-6 items-start">
+                  <div className="w-24 h-24 shrink-0 rounded-2xl border border-slate-200 bg-slate-50 p-3 flex items-center justify-center">
                     <img
                       src={job.user.profile?.pictureUrl || "/avatars/male.svg"}
                       alt="Company Logo"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h2 className="text-xl font-bold text-slate-900">
+                  <div className="min-w-0 flex-1 py-1">
+                    <h2 className="text-2xl font-bold text-slate-900">
                       {job.user.profile?.name || "Company Name"}
                     </h2>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1">
-                      <p className="text-slate-500 text-sm flex items-center gap-1.5">
-                        <MapPin className="w-4 h-4 text-slate-400" />
+                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-3">
+                      <p className="text-slate-500 text-base flex items-center gap-2">
+                        <MapPin className="w-5 h-5 text-slate-400" />
                         {job.user.profile?.companyAddress || "Address"}
                       </p>
                       {job.user.profile?.companyWebsite && (
@@ -299,9 +299,9 @@ export default function JobDetail({
                           href={websiteUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-eduBlue hover:text-blue-700 transition-colors text-sm"
+                          className="inline-flex items-center gap-2 text-eduBlue hover:text-blue-700 transition-colors text-base"
                         >
-                          <Globe className="w-4 h-4" />
+                          <Globe className="w-5 h-5" />
                           Website
                         </a>
                       )}
@@ -309,26 +309,26 @@ export default function JobDetail({
                   </div>
                 </div>
 
-                <div className="mt-5 pt-5 border-t border-slate-100">
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                <div className="mt-8 pt-6 border-t border-slate-100">
+                  <p className="text-slate-600 text-base leading-relaxed">
                     {job.user.profile?.bio || "No company bio available."}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-5 border-t border-slate-100 grid grid-cols-2 gap-4">
-                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
-                    <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-1">
+                <div className="mt-8 pt-6 border-t border-slate-100 grid grid-cols-2 gap-6">
+                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 text-center">
+                    <p className="text-sm text-slate-500 font-semibold uppercase tracking-wider mb-2">
                       Jobs Posted
                     </p>
-                    <p className="text-2xl font-bold text-slate-900">
+                    <p className="text-3xl font-bold text-slate-900">
                       {job.user.profile?.totalJobs || 0}
                     </p>
                   </div>
-                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
-                    <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-1">
+                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 text-center">
+                    <p className="text-sm text-slate-500 font-semibold uppercase tracking-wider mb-2">
                       Hire Rate
                     </p>
-                    <p className="text-2xl font-bold text-slate-900">
+                    <p className="text-3xl font-bold text-slate-900">
                       {Math.round(hireRate) || 0}%
                     </p>
                   </div>
