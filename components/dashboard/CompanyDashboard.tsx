@@ -6,8 +6,8 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import CreateJobPopover from "../jobs/CreateJob";
 import { ApplicantsChart } from "./ApplicantsChart";
+import { HiredPieChart } from "./HiredPieChart";
 import { JobPostCard } from "./JobPostCard";
-import { Briefcase, Users, UserCheck } from "lucide-react";
 
 export default async function CompanyDashboard() {
   const user = await getCurrentUser();
@@ -130,39 +130,9 @@ export default async function CompanyDashboard() {
           <ApplicantsChart data={weeklyData} />
         </div>
 
-        {/* Stats Cards - 1/3 width */}
-        <div className="space-y-4">
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 flex items-center gap-4">
-            <div className="p-3 bg-blue-50 rounded-xl">
-              <Briefcase className="w-6 h-6 text-blue-600" />
-            </div>
-            <div>
-              <p className="text-sm text-slate-500">Jobs Posted</p>
-              <p className="text-2xl font-bold text-slate-900">{jobs.length}</p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 flex items-center gap-4">
-            <div className="p-3 bg-purple-50 rounded-xl">
-              <Users className="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <p className="text-sm text-slate-500">Total Applicants</p>
-              <p className="text-2xl font-bold text-slate-900">
-                {totalApplicants}
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 flex items-center gap-4">
-            <div className="p-3 bg-emerald-50 rounded-xl">
-              <UserCheck className="w-6 h-6 text-emerald-600" />
-            </div>
-            <div>
-              <p className="text-sm text-slate-500">Total Hired</p>
-              <p className="text-2xl font-bold text-slate-900">{hiredCount}</p>
-            </div>
-          </div>
+        {/* Hired Pie Chart - 1/3 width */}
+        <div className="lg:col-span-1">
+          <HiredPieChart hired={hiredCount} notHired={totalApplicants - hiredCount} />
         </div>
       </div>
 
