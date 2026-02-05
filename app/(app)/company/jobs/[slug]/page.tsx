@@ -121,28 +121,30 @@ export default async function JobApplicantsPage({ params }: PageProps) {
             <span className="text-sm font-medium">Back to Dashboard</span>
           </Link>
 
-          <div className="flex items-center gap-3 flex-wrap mb-4">
-            <span className="bg-eduBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              {job.category.name}
-            </span>
-            {job.status === "DRAFT" && (
-              <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                Draft
-              </span>
-            )}
-          </div>
-
           <div className="flex items-center justify-between gap-6">
-            <div className="space-y-3">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-                {job.title}
-              </h1>
-              <p className="text-slate-400 max-w-2xl line-clamp-2">
-                {job.description}
-              </p>
+            <div>
+              <div className="flex items-center gap-3 flex-wrap mb-4">
+                <span className="bg-eduBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  {job.category.name}
+                </span>
+                {job.status === "DRAFT" && (
+                  <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Draft
+                  </span>
+                )}
+              </div>
+
+              <div className="space-y-3">
+                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+                  {job.title}
+                </h1>
+                <p className="text-slate-400 max-w-2xl line-clamp-2">
+                  {job.description}
+                </p>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0 self-start">
+            <div className="flex items-center gap-3 shrink-0">
               <UpdateJobPopover job={job} categories={jobCategories} />
               <DeleteJobButton jobId={job.id} />
             </div>
