@@ -56,6 +56,7 @@ export default async function CompanyDashboard() {
       applications: {
         select: {
           appliedAt: true,
+          status: true,
         },
       },
     },
@@ -81,6 +82,21 @@ export default async function CompanyDashboard() {
   );
 
   const hiredCount = jobs.reduce((sum, job) => sum + job.hired, 0);
+
+  const pendingCount = jobs.reduce(
+    (sum, job) =>
+      sum +
+      job.applications.filter(
+        (app) => app.status === "APPLIED" || app.status === "REVIEWED"
+      ).length,
+    0
+  );
+
+  const acceptedCount = jobs.reduce(
+    (sum, job) =>
+      sum + job.applications.filter((app) => app.status === "ACCEPTED").length,
+    0
+  );
 
   const now = new Date();
   const weeklyData = [];
@@ -134,9 +150,15 @@ export default async function CompanyDashboard() {
       <div className="bg-slate-50 rounded-3xl border border-slate-200/60 p-6">
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-xl font-bold text-slate-900">Job Posts</h2>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <span className="text-sm text-slate-500">
               showing: {jobs.length}
+            </span>
+            <span className="text-sm text-amber-600">
+              pending: {pendingCount}
+            </span>
+            <span className="text-sm text-green-600">
+              accepted: {acceptedCount}
             </span>
             <CreateJobPopover categories={jobCategories} />
           </div>
