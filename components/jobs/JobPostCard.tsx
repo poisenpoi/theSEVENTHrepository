@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Users, Briefcase } from "lucide-react";
+import { Users, Briefcase, Clock, CheckCircle } from "lucide-react";
 
 interface JobPostCardProps {
   job: {
@@ -11,6 +11,8 @@ interface JobPostCardProps {
     _count: {
       applications: number;
     };
+    pendingCount: number;
+    acceptedCount: number;
   };
 }
 
@@ -37,9 +39,21 @@ export function JobPostCard({ job }: JobPostCardProps) {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 text-slate-600 shrink-0">
-        <Users className="w-4 h-4" />
-        <span className="text-base font-semibold">{job._count.applications}</span>
+      <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 text-slate-600" title="Total Applicants">
+          <Users className="w-4 h-4" />
+          <span className="text-xs font-semibold">{job._count.applications}</span>
+        </div>
+
+        <div className="flex items-center gap-1.5 text-amber-600" title="Pending Applications">
+          <Clock className="w-4 h-4" />
+          <span className="text-xs font-semibold">{job.pendingCount}</span>
+        </div>
+
+        <div className="flex items-center gap-1.5 text-green-600" title="Accepted Applications">
+          <CheckCircle className="w-4 h-4" />
+          <span className="text-xs font-semibold">{job.acceptedCount}</span>
+        </div>
       </div>
     </Link>
   );
