@@ -113,16 +113,16 @@ export default async function JobApplicantsPage({ params }: PageProps) {
     <div className="min-h-screen bg-slate-50">
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
-          <Link
-            href="/dashboard"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-6"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Back to Dashboard</span>
-          </Link>
-
           <div className="flex items-center justify-between gap-6">
             <div>
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-6"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span className="text-sm font-medium">Back to Dashboard</span>
+              </Link>
+
               <div className="flex items-center gap-3 flex-wrap mb-4">
                 <span className="bg-eduBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   {job.category.name}
