@@ -121,9 +121,9 @@ export default async function JobApplicantsPage({ params }: PageProps) {
             <span className="text-sm font-medium">Back to Dashboard</span>
           </Link>
 
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+            <div className="space-y-3 min-w-0 flex-1">
+              <div className="flex items-center gap-3 flex-wrap">
                 <span className="bg-eduBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   {job.category.name}
                 </span>
@@ -141,7 +141,7 @@ export default async function JobApplicantsPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-3 shrink-0 lg:pt-1">
               <UpdateJobPopover job={job} categories={jobCategories} />
               <DeleteJobButton jobId={job.id} />
             </div>
@@ -230,9 +230,9 @@ export default async function JobApplicantsPage({ params }: PageProps) {
                 <Link
                   key={app.id}
                   href={`/company/jobs/${job.slug}/applications/${app.id}`}
-                  className="flex items-center justify-between p-5 hover:bg-slate-50 transition-colors group"
+                  className="flex items-center justify-between gap-4 p-5 hover:bg-slate-50 transition-colors group"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 min-w-0 flex-1">
                     <div className="w-12 h-12 rounded-full bg-slate-100 overflow-hidden flex items-center justify-center text-lg font-semibold text-slate-600 shrink-0">
                       {app.user.profile?.pictureUrl ? (
                         <img
@@ -248,8 +248,8 @@ export default async function JobApplicantsPage({ params }: PageProps) {
                       )}
                     </div>
 
-                    <div>
-                      <p className="font-semibold text-slate-900 group-hover:text-eduBlue transition-colors">
+                    <div className="min-w-0">
+                      <p className="font-semibold text-slate-900 group-hover:text-eduBlue transition-colors truncate">
                         {app.user.profile?.name || app.user.email}
                       </p>
                       <p className="text-sm text-slate-500">
@@ -263,7 +263,7 @@ export default async function JobApplicantsPage({ params }: PageProps) {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 shrink-0">
                     {getStatusBadge(app.status)}
                     <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-eduBlue transition-colors" />
                   </div>
