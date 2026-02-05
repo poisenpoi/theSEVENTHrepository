@@ -7,7 +7,7 @@ import Link from "next/link";
 import CreateJobPopover from "../jobs/CreateJob";
 import { ApplicantsChart } from "./ApplicantsChart";
 import { HiredPieChart } from "./HiredPieChart";
-import { JobPostCard } from "./JobPostCard";
+import { JobPostCard } from "../jobs/JobPostCard";
 
 export default async function CompanyDashboard() {
   const user = await getCurrentUser();
