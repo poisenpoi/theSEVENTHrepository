@@ -132,11 +132,11 @@ export default async function JobApplicantsPage({ params }: PageProps) {
             )}
           </div>
 
-          <div className="space-y-3 text-center">
+          <div className="space-y-3">
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
               {job.title}
             </h1>
-            <p className="text-slate-400 max-w-2xl mx-auto line-clamp-2">
+            <p className="text-slate-400 max-w-2xl line-clamp-2">
               {job.description}
             </p>
           </div>
