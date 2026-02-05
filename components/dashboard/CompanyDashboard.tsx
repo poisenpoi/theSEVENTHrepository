@@ -7,7 +7,7 @@ import Link from "next/link";
 import CreateJobPopover from "../jobs/CreateJob";
 import { ApplicantsChart } from "./ApplicantsChart";
 import { HiredPieChart } from "./HiredPieChart";
-import { JobPostCard } from "./JobPostCard";
+import { JobPostCard } from "../jobs/JobPostCard";
 
 export default async function CompanyDashboard() {
   const user = await getCurrentUser();
@@ -56,6 +56,7 @@ export default async function CompanyDashboard() {
       applications: {
         select: {
           appliedAt: true,
+          status: true,
         },
       },
     },
@@ -81,6 +82,21 @@ export default async function CompanyDashboard() {
   );
 
   const hiredCount = jobs.reduce((sum, job) => sum + job.hired, 0);
+
+  const pendingCount = jobs.reduce(
+    (sum, job) =>
+      sum +
+      job.applications.filter(
+        (app) => app.status === "APPLIED" || app.status === "REVIEWED"
+      ).length,
+    0
+  );
+
+  const acceptedCount = jobs.reduce(
+    (sum, job) =>
+      sum + job.applications.filter((app) => app.status === "ACCEPTED").length,
+    0
+  );
 
   const now = new Date();
   const weeklyData = [];
@@ -133,13 +149,19 @@ export default async function CompanyDashboard() {
 
       <div className="bg-slate-50 rounded-3xl border border-slate-200/60 p-6">
         <div className="flex items-center justify-between mb-5">
-          <div className="flex items-center gap-3">
-            <h2 className="text-xl font-bold text-slate-900">Job Posts</h2>
+          <h2 className="text-xl font-bold text-slate-900">Job Posts</h2>
+          <div className="flex items-center gap-4">
             <span className="text-sm text-slate-500">
-              showing: {jobs.length}
+              Showing: {jobs.length}
             </span>
+            <span className="text-sm text-amber-600">
+              Pending: {pendingCount}
+            </span>
+            <span className="text-sm text-green-600">
+              Accepted: {acceptedCount}
+            </span>
+            <CreateJobPopover categories={jobCategories} />
           </div>
-          <CreateJobPopover categories={jobCategories} />
         </div>
 
         {jobsForCards.length > 0 ? (
