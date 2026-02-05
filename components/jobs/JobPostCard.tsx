@@ -8,6 +8,8 @@ interface JobPostCardProps {
     slug: string;
     status: string;
     hired: number;
+    pendingCount: number;
+    acceptedCount: number;
     _count: {
       applications: number;
     };
@@ -37,9 +39,19 @@ export function JobPostCard({ job }: JobPostCardProps) {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 text-slate-600 shrink-0">
-        <Users className="w-4 h-4" />
-        <span className="text-base font-semibold">{job._count.applications}</span>
+      <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-1.5 text-amber-600">
+          <span className="text-xs">pending:</span>
+          <span className="text-sm font-semibold">{job.pendingCount}</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-green-600">
+          <span className="text-xs">accepted:</span>
+          <span className="text-sm font-semibold">{job.acceptedCount}</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-slate-600">
+          <Users className="w-4 h-4" />
+          <span className="text-sm font-semibold">{job._count.applications}</span>
+        </div>
       </div>
     </Link>
   );

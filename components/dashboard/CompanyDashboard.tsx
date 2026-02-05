@@ -129,7 +129,14 @@ export default async function CompanyDashboard() {
     });
   }
 
-  const jobsForCards = jobs.map(({ applications, ...job }) => job);
+  const jobsForCards = jobs.map(({ applications, ...job }) => ({
+    ...job,
+    pendingCount: applications.filter(
+      (app) => app.status === "APPLIED" || app.status === "REVIEWED"
+    ).length,
+    acceptedCount: applications.filter((app) => app.status === "ACCEPTED")
+      .length,
+  }));
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-10 space-y-8 min-h-screen">
