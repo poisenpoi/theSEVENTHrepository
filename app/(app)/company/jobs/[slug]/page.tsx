@@ -142,7 +142,7 @@ export default async function JobApplicantsPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0 self-center">
+            <div className="flex items-center gap-3 shrink-0 self-start">
               <UpdateJobPopover job={job} categories={jobCategories} />
               <DeleteJobButton jobId={job.id} />
             </div>
