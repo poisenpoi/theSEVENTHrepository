@@ -21,11 +21,11 @@ interface ApplicantsChartProps {
 
 export function ApplicantsChart({ data }: ApplicantsChartProps) {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full w-full">
+    <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full w-full outline-none" tabIndex={-1}>
       <h3 className="text-lg font-bold text-slate-900 mb-4">
         Weekly Applicants
       </h3>
-      <div className="h-64">
+      <div className="h-64 [&_*]:outline-none">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={data}
