@@ -112,7 +112,7 @@ export default async function JobApplicantsPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="bg-slate-900 text-white">
-        <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           <Link
             href="/dashboard"
             className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-6"
@@ -150,7 +150,7 @@ export default async function JobApplicantsPage({ params }: PageProps) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-2xl border border-slate-200 p-5 text-center shadow-sm">
             <div className="flex justify-center mb-3">
