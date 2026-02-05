@@ -14,7 +14,7 @@ export default function DeleteJobButton({ jobId }: { jobId: string }) {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-5 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-100 hover:border-red-300 transition-all"
+        className="inline-flex items-center gap-2 rounded-xl bg-red-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-700 transition-all"
       >
         <Trash2 className="w-4 h-4" />
         Delete

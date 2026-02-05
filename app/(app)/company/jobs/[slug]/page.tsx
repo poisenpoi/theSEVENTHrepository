@@ -132,20 +132,18 @@ export default async function JobApplicantsPage({ params }: PageProps) {
             )}
           </div>
 
-          <div className="flex items-center justify-between gap-6">
-            <div className="space-y-3">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-                {job.title}
-              </h1>
-              <p className="text-slate-400 max-w-2xl line-clamp-2">
-                {job.description}
-              </p>
-            </div>
+          <div className="space-y-3 text-center">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+              {job.title}
+            </h1>
+            <p className="text-slate-400 max-w-2xl mx-auto line-clamp-2">
+              {job.description}
+            </p>
+          </div>
 
-            <div className="flex items-center gap-3 shrink-0">
-              <UpdateJobPopover job={job} categories={jobCategories} />
-              <DeleteJobButton jobId={job.id} />
-            </div>
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <UpdateJobPopover job={job} categories={jobCategories} />
+            <DeleteJobButton jobId={job.id} />
           </div>
         </div>
       </div>
