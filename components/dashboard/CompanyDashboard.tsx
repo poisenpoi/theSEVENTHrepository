@@ -133,13 +133,13 @@ export default async function CompanyDashboard() {
 
       <div className="bg-slate-50 rounded-3xl border border-slate-200/60 p-6">
         <div className="flex items-center justify-between mb-5">
+          <h2 className="text-xl font-bold text-slate-900">Job Posts</h2>
           <div className="flex items-center gap-3">
-            <h2 className="text-xl font-bold text-slate-900">Job Posts</h2>
             <span className="text-sm text-slate-500">
               showing: {jobs.length}
             </span>
+            <CreateJobPopover categories={jobCategories} />
           </div>
-          <CreateJobPopover categories={jobCategories} />
         </div>
 
         {jobsForCards.length > 0 ? (
