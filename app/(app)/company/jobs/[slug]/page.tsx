@@ -113,33 +113,35 @@ export default async function JobApplicantsPage({ params }: PageProps) {
     <div className="min-h-screen bg-slate-50">
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
-          <Link
-            href="/dashboard"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-6"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Back to Dashboard</span>
-          </Link>
+          <div className="flex justify-between gap-6">
+            <div>
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-6"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span className="text-sm font-medium">Back to Dashboard</span>
+              </Link>
 
-          <div className="flex items-center gap-3 flex-wrap mb-4">
-            <span className="bg-eduBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              {job.category.name}
-            </span>
-            {job.status === "DRAFT" && (
-              <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                Draft
-              </span>
-            )}
-          </div>
+              <div className="flex items-center gap-3 flex-wrap mb-4">
+                <span className="bg-eduBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  {job.category.name}
+                </span>
+                {job.status === "DRAFT" && (
+                  <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Draft
+                  </span>
+                )}
+              </div>
 
-          <div className="flex items-center justify-between gap-6">
-            <div className="space-y-3">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-                {job.title}
-              </h1>
-              <p className="text-slate-400 max-w-2xl line-clamp-2">
-                {job.description}
-              </p>
+              <div className="space-y-3">
+                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+                  {job.title}
+                </h1>
+                <p className="text-slate-400 max-w-2xl line-clamp-2">
+                  {job.description}
+                </p>
+              </div>
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
