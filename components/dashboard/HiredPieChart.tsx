@@ -18,11 +18,11 @@ export function HiredPieChart({ hired, notHired }: HiredPieChartProps) {
   const total = hired + notHired;
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full w-full flex flex-col">
+    <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full w-full flex flex-col outline-none" tabIndex={-1}>
       <h3 className="text-lg font-bold text-slate-900 mb-4">
         Hiring Overview
       </h3>
-      <div className="flex-1 min-h-[200px]">
+      <div className="flex-1 min-h-[200px] [&_*]:outline-none">
         {total > 0 ? (
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
