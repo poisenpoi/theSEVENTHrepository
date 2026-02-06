@@ -249,7 +249,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
           applicant.experiences.length > 0) && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {applicant.educations.length > 0 && (
-              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+              <div className={`bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden ${applicant.experiences.length === 0 ? "md:col-span-2" : ""}`}>
                 <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-violet-50 rounded-xl">
@@ -289,7 +289,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
             )}
 
             {applicant.experiences.length > 0 && (
-              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+              <div className={`bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden ${applicant.educations.length === 0 ? "md:col-span-2" : ""}`}>
                 <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-emerald-50 rounded-xl">
@@ -324,7 +324,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
           applicant.skills.length > 0) && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {applicant.workshopSubmissions.length > 0 && (
-              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+              <div className={`bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden ${applicant.skills.length === 0 ? "md:col-span-2" : ""}`}>
                 <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-amber-50 rounded-xl">
@@ -377,7 +377,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
             )}
 
             {applicant.skills.length > 0 && (
-              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+              <div className={`bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden ${applicant.workshopSubmissions.length === 0 ? "md:col-span-2" : ""}`}>
                 <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-blue-50 rounded-xl">

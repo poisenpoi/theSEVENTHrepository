@@ -1,26 +1,23 @@
 "use client";
 
 import { acceptApplication, rejectApplication } from "@/actions/jobManagement";
-import { CheckCircle, XCircle } from "lucide-react";
 
 export function AcceptApp({ app }: { app: any }) {
   return (
-    <div className="flex gap-3">
-      <form action={acceptApplication.bind(null, app.id)} className="flex-1">
+    <div className="flex items-center gap-2">
+      <form action={acceptApplication.bind(null, app.id)}>
         <button
-          className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition-all shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 rounded-full font-semibold text-sm bg-emerald-100 text-emerald-700 border border-emerald-200 hover:bg-emerald-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <CheckCircle className="w-4 h-4" />
           Accept
         </button>
       </form>
 
-      <form action={rejectApplication.bind(null, app.id)} className="flex-1">
+      <form action={rejectApplication.bind(null, app.id)}>
         <button
           disabled={app.status !== "REVIEWED"}
-          className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition-all shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 rounded-full font-semibold text-sm bg-red-100 text-red-700 border border-red-200 hover:bg-red-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <XCircle className="w-4 h-4" />
           Reject
         </button>
       </form>
