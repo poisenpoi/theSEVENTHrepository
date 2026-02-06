@@ -4,9 +4,11 @@ import { acceptApplication, rejectApplication } from "@/actions/jobManagement";
 
 export function AcceptApp({ app }: { app: any }) {
   return (
-    <div className="flex gap-2">
+    <div className="flex items-center gap-2">
       <form action={acceptApplication.bind(null, app.id)}>
-        <button className="px-4 py-2 rounded-md bg-green-600 text-white text-sm hover:bg-green-700 disabled:opacity-50">
+        <button
+          className="px-4 py-2 rounded-full font-semibold text-sm bg-emerald-600 text-white border border-emerald-700 hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
           Accept
         </button>
       </form>
@@ -14,7 +16,7 @@ export function AcceptApp({ app }: { app: any }) {
       <form action={rejectApplication.bind(null, app.id)}>
         <button
           disabled={app.status !== "REVIEWED"}
-          className="px-4 py-2 rounded-md bg-red-500 text-white text-sm hover:bg-red-600 disabled:opacity-50"
+          className="px-4 py-2 rounded-full font-semibold text-sm bg-red-500 text-white border border-red-600 hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Reject
         </button>
