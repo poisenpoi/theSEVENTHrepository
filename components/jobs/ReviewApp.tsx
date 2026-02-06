@@ -8,7 +8,7 @@ export function ReviewApp({ app }: { app: any }) {
       <form action={reviewApplication.bind(null, app.id)}>
         <button
           disabled={app.status !== "APPLIED"}
-          className="px-4 py-2 rounded-full font-semibold text-sm bg-emerald-100 text-emerald-700 border border-emerald-200 hover:bg-emerald-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 rounded-full font-semibold text-sm bg-emerald-600 text-white border border-emerald-700 hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Review
         </button>
@@ -17,7 +17,7 @@ export function ReviewApp({ app }: { app: any }) {
       <form action={rejectApplication.bind(null, app.id)}>
         <button
           disabled={app.status !== "APPLIED"}
-          className="px-4 py-2 rounded-full font-semibold text-sm bg-red-100 text-red-700 border border-red-200 hover:bg-red-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 rounded-full font-semibold text-sm bg-red-500 text-white border border-red-600 hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Reject
         </button>
