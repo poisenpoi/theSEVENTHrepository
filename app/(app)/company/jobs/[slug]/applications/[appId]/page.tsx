@@ -67,7 +67,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
 
       <div className="rounded-xl border bg-white p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center text-lg font-semibold">
+          <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center text-lg font-semibold shrink-0">
             {profile?.pictureUrl ? (
               <img
                 src={profile.pictureUrl}
@@ -80,26 +80,30 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
               </span>
             )}
           </div>
-          <div>
+          <div className="min-w-0 flex-1">
             <p className="font-semibold text-lg">
               {profile?.name || applicant.email}
             </p>
             <p className="text-sm text-gray-500">{applicant.email}</p>
           </div>
-        </div>
-
-        <div>
-          <span className="font-medium">Status:</span>{" "}
           <span
-            className={`ml-2 font-semibold ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold shrink-0 ${
               application.status === "ACCEPTED"
-                ? "text-green-600"
+                ? "bg-emerald-100 text-emerald-700 border border-emerald-200"
                 : application.status === "REJECTED"
-                  ? "text-red-500"
-                  : "text-yellow-600"
+                  ? "bg-red-100 text-red-700 border border-red-200"
+                  : application.status === "REVIEWED"
+                    ? "bg-blue-100 text-blue-700 border border-blue-200"
+                    : "bg-amber-100 text-amber-700 border border-amber-200"
             }`}
           >
-            {application.status}
+            {application.status === "ACCEPTED"
+              ? "Accepted"
+              : application.status === "REJECTED"
+                ? "Rejected"
+                : application.status === "REVIEWED"
+                  ? "Under Review"
+                  : "Applied"}
           </span>
         </div>
 

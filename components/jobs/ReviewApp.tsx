@@ -4,7 +4,7 @@ import { reviewApplication, rejectApplication } from "@/actions/jobManagement";
 
 export function ReviewApp({ app }: { app: any }) {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 justify-center">
       <form action={reviewApplication.bind(null, app.id)}>
         <button
           disabled={app.status !== "APPLIED"}
