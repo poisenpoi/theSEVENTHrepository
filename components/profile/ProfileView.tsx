@@ -224,7 +224,7 @@ export default function ProfileView({
               switch (user.role) {
                 case "COMPANY":
                   return (
-                    <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
                       <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100">
                         <div className="flex items-center gap-3">
                           <div className="p-2 bg-indigo-50 rounded-xl">
@@ -250,13 +250,6 @@ export default function ProfileView({
                             value={verification?.status ?? "UNVERIFIED"}
                             iconBg="bg-yellow-50"
                             iconColor="text-yellow-600"
-                          />
-                          <DetailItem
-                            icon={<MapPinned className="w-4 h-4" />}
-                            label="Company Address"
-                            value={profile?.companyAddress}
-                            iconBg="bg-purple-50"
-                            iconColor="text-purple-600"
                           />
                           <DetailItem
                             icon={<Globe className="w-4 h-4" />}
@@ -379,6 +372,23 @@ export default function ProfileView({
           <div className="lg:col-span-1 flex flex-col h-full justify-between gap-6">
             {user.role === "COMPANY" ? (
               <div className="contents">
+                <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 flex flex-col justify-center items-center text-center gap-3">
+                  <div className="p-3 rounded-xl bg-purple-50 text-purple-600">
+                    <MapPinned className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-slate-500 mb-1">
+                      Location
+                    </div>
+                    <div className="text-base font-semibold text-slate-900">
+                      {profile?.companyAddress || (
+                        <span className="text-slate-400 font-normal">
+                          Not provided
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
                 <StatCard
                   label="Job Postings"
                   value={profile?.totalJobs}
