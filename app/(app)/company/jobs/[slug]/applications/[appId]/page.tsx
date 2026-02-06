@@ -134,7 +134,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
             </div>
 
             <div className="flex-1 text-center sm:text-left">
-              <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-3">
+              <div className="flex flex-col sm:flex-row items-center sm:items-center gap-2">
                 <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                   {profile?.name || applicant.email}
                 </h1>
@@ -142,13 +142,13 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
                   className={`flex items-center gap-1.5 px-3 py-1 rounded-full font-semibold text-xs ${status.bg} ${status.text} border ${status.border}`}
                 >
                   {application.status === "REVIEWED" && (
-                    <Clock className="w-4 h-4" />
+                    <Clock className="w-3.5 h-3.5" />
                   )}
                   {application.status === "ACCEPTED" && (
-                    <CheckCircle className="w-4 h-4" />
+                    <CheckCircle className="w-3.5 h-3.5" />
                   )}
                   {application.status === "REJECTED" && (
-                    <XCircle className="w-4 h-4" />
+                    <XCircle className="w-3.5 h-3.5" />
                   )}
                   {status.label}
                 </div>
@@ -167,7 +167,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
 
             {(application.status === "APPLIED" ||
               application.status === "REVIEWED") && (
-              <div className="flex items-center">
+              <div className="shrink-0">
                 {application.status === "APPLIED" && (
                   <ReviewApp app={application} />
                 )}
