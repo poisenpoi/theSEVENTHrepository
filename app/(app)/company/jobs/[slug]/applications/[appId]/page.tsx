@@ -264,11 +264,11 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
                     </h2>
                   </div>
                 </div>
-                <div className="p-6 space-y-4">
+                <div className="divide-y divide-slate-100">
                   {applicant.educations.map((edu) => (
                     <div
                       key={edu.id}
-                      className="border-b border-slate-100 last:border-none pb-4 last:pb-0"
+                      className="px-6 py-4"
                     >
                       <h3 className="font-semibold text-slate-900">
                         {edu.institution}
@@ -304,11 +304,11 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
                     </h2>
                   </div>
                 </div>
-                <div className="p-6 space-y-4">
+                <div className="divide-y divide-slate-100">
                   {applicant.experiences.map((exp) => (
                     <div
                       key={exp.id}
-                      className="border-b border-slate-100 last:border-none pb-4 last:pb-0"
+                      className="px-6 py-4"
                     >
                       <h3 className="font-semibold text-slate-900">
                         {exp.jobTitle}
