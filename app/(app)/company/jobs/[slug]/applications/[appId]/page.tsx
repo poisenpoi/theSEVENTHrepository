@@ -151,7 +151,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
 
             <div className="flex flex-col items-center sm:items-end gap-3">
               <div
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-base ${status.bg} ${status.text} border ${status.border}`}
+                className={`w-full flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold text-base ${status.bg} ${status.text} border ${status.border}`}
               >
                 {application.status === "REVIEWED" && (
                   <Clock className="w-5 h-5" />
