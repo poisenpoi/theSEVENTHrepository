@@ -118,7 +118,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
             Back to Applications
           </Link>
 
-          <div className="mt-6 flex flex-col sm:flex-row items-center gap-6">
+          <div className="mt-6 flex flex-col sm:flex-row items-center sm:items-start gap-6">
             <div className="w-20 h-20 rounded-full overflow-hidden bg-white flex items-center justify-center text-2xl font-bold text-eduBlue shrink-0">
               {profile?.pictureUrl ? (
                 <img
@@ -139,7 +139,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
                   {profile?.name || applicant.email}
                 </h1>
                 <div
-                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full font-semibold text-xs ${status.bg} ${status.text} border ${status.border}`}
+                  className={`sm:-mt-0.5 flex items-center gap-1.5 px-3 py-1 rounded-full font-semibold text-xs ${status.bg} ${status.text} border ${status.border}`}
                 >
                   {application.status === "REVIEWED" && (
                     <Clock className="w-3.5 h-3.5" />
@@ -167,7 +167,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
 
             {(application.status === "APPLIED" ||
               application.status === "REVIEWED") && (
-              <div className="shrink-0">
+              <div className="shrink-0 sm:mt-1">
                 {application.status === "APPLIED" && (
                   <ReviewApp app={application} />
                 )}
