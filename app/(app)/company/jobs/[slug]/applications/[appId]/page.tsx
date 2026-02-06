@@ -139,7 +139,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
                   {profile?.name || applicant.email}
                 </h1>
                 <div
-                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full font-semibold text-xs ${status.bg} ${status.text} border ${status.border}`}
+                  className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-semibold text-xs ${status.bg} ${status.text} border ${status.border}`}
                 >
                   {application.status === "REVIEWED" && (
                     <Clock className="w-3.5 h-3.5" />
