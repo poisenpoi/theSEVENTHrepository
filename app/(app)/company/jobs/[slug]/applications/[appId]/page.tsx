@@ -109,7 +109,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50/30">
       <div className="bg-eduBlue">
-        <div className="mx-auto max-w-5xl px-6 py-8 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
           <Link
             href={`/company/jobs/${slug}/applications`}
             className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors"
@@ -170,264 +170,280 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
         </div>
       </div>
 
-      <div className="mx-auto max-w-5xl px-6 py-12 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {profile && (profile.name || profile.dob || profile.gender) && (
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden md:col-span-2">
-              <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-indigo-50 rounded-xl">
-                    <User className="w-5 h-5 text-indigo-600" />
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 flex flex-col gap-8">
+            {profile && (profile.name || profile.dob || profile.gender) && (
+              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-indigo-50 rounded-xl">
+                      <User className="w-5 h-5 text-indigo-600" />
+                    </div>
+                    <h2 className="text-lg font-semibold text-slate-900">
+                      Personal Information
+                    </h2>
                   </div>
-                  <h2 className="text-lg font-semibold text-slate-900">
-                    Personal Information
-                  </h2>
+                </div>
+                <div className="p-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-6">
+                    {profile.name && (
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 rounded-lg bg-blue-50 text-blue-600 shrink-0">
+                          <User className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">
+                            Full Name
+                          </p>
+                          <p className="text-base text-slate-900 mt-1">
+                            {profile.name}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    {profile.dob && (
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 rounded-lg bg-purple-50 text-purple-600 shrink-0">
+                          <Calendar className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">
+                            Date of Birth
+                          </p>
+                          <p className="text-base text-slate-900 mt-1">
+                            {new Date(profile.dob).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    {profile.gender && (
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600 shrink-0">
+                          <Users className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">
+                            Gender
+                          </p>
+                          <p className="text-base text-slate-900 mt-1">
+                            {profile.gender.charAt(0) +
+                              profile.gender.slice(1).toLowerCase()}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-              <div className="p-6">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-6">
-                  {profile.name && (
-                    <div className="flex items-start gap-3">
-                      <div className="p-2 rounded-lg bg-blue-50 text-blue-600 shrink-0">
-                        <User className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">
-                          Full Name
-                        </p>
-                        <p className="text-base text-slate-900 mt-1">
-                          {profile.name}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                  {profile.dob && (
-                    <div className="flex items-start gap-3">
-                      <div className="p-2 rounded-lg bg-purple-50 text-purple-600 shrink-0">
-                        <Calendar className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">
-                          Date of Birth
-                        </p>
-                        <p className="text-base text-slate-900 mt-1">
-                          {new Date(profile.dob).toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                  {profile.gender && (
-                    <div className="flex items-start gap-3">
-                      <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600 shrink-0">
-                        <Users className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">
-                          Gender
-                        </p>
-                        <p className="text-base text-slate-900 mt-1">
-                          {profile.gender.charAt(0) +
-                            profile.gender.slice(1).toLowerCase()}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
+            )}
 
-          {applicant.skills.length > 0 && (
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-50 rounded-xl">
-                    <ListCheck className="w-5 h-5 text-blue-600" />
+            {applicant.educations.length > 0 && (
+              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-violet-50 rounded-xl">
+                      <GraduationCap className="w-5 h-5 text-violet-600" />
+                    </div>
+                    <h2 className="text-lg font-semibold text-slate-900">
+                      Education
+                    </h2>
                   </div>
-                  <h2 className="text-lg font-semibold text-slate-900">
-                    Skills
-                  </h2>
                 </div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2">
-                  {applicant.skills.map((s) => (
-                    <span
-                      key={s.id}
-                      className="px-3 py-1.5 rounded-full bg-blue-50 text-sm font-medium text-blue-700"
+                <div className="p-6 space-y-4">
+                  {applicant.educations.map((edu) => (
+                    <div
+                      key={edu.id}
+                      className="border-b border-slate-100 last:border-none pb-4 last:pb-0"
                     >
-                      {s.name}
-                    </span>
+                      <h3 className="font-semibold text-slate-900">
+                        {edu.institution}
+                      </h3>
+                      {(edu.degree || edu.fieldOfStudy) && (
+                        <p className="text-sm text-slate-600 mt-0.5">
+                          {[edu.degree, edu.fieldOfStudy]
+                            .filter(Boolean)
+                            .join(" · ")}
+                        </p>
+                      )}
+                      <p className="text-xs text-slate-400 mt-1">
+                        {new Date(edu.startDate).getFullYear()} –{" "}
+                        {edu.endDate
+                          ? new Date(edu.endDate).getFullYear()
+                          : "Present"}
+                      </p>
+                    </div>
                   ))}
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {applicant.educations.length > 0 && (
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-violet-50 rounded-xl">
-                    <GraduationCap className="w-5 h-5 text-violet-600" />
-                  </div>
-                  <h2 className="text-lg font-semibold text-slate-900">
-                    Education
-                  </h2>
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                {applicant.educations.map((edu) => (
-                  <div
-                    key={edu.id}
-                    className="border-b border-slate-100 last:border-none pb-4 last:pb-0"
-                  >
-                    <h3 className="font-semibold text-slate-900">
-                      {edu.institution}
-                    </h3>
-                    {(edu.degree || edu.fieldOfStudy) && (
-                      <p className="text-sm text-slate-600 mt-0.5">
-                        {[edu.degree, edu.fieldOfStudy]
-                          .filter(Boolean)
-                          .join(" · ")}
-                      </p>
-                    )}
-                    <p className="text-xs text-slate-400 mt-1">
-                      {new Date(edu.startDate).getFullYear()} –{" "}
-                      {edu.endDate
-                        ? new Date(edu.endDate).getFullYear()
-                        : "Present"}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {applicant.experiences.length > 0 && (
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-emerald-50 rounded-xl">
-                    <Briefcase className="w-5 h-5 text-emerald-600" />
-                  </div>
-                  <h2 className="text-lg font-semibold text-slate-900">
-                    Experience
-                  </h2>
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                {applicant.experiences.map((exp) => (
-                  <div
-                    key={exp.id}
-                    className="border-b border-slate-100 last:border-none pb-4 last:pb-0"
-                  >
-                    <h3 className="font-semibold text-slate-900">
-                      {exp.jobTitle}
-                    </h3>
-                    <p className="text-sm text-slate-600 mt-0.5">
-                      {exp.companyName}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {applicant.cvs.length > 0 && (
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-rose-50 rounded-xl">
-                    <FileText className="w-5 h-5 text-rose-600" />
-                  </div>
-                  <h2 className="text-lg font-semibold text-slate-900">
-                    Resume
-                  </h2>
-                </div>
-              </div>
-              <div className="p-6">
-                <a
-                  href={applicant.cvs[0].fileUrl}
-                  target="_blank"
-                  className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-medium hover:bg-slate-100 hover:border-slate-300 transition-all"
-                >
-                  <Download className="w-4 h-4 text-slate-500" />
-                  Download CV
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-                </a>
-              </div>
-            </div>
-          )}
-
-          {applicant.workshopSubmissions.length > 0 && (
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden md:col-span-2">
-              <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-amber-50 rounded-xl">
-                    <BookOpen className="w-5 h-5 text-amber-600" />
-                  </div>
-                  <h2 className="text-lg font-semibold text-slate-900">
-                    Completed Workshops
-                  </h2>
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                {applicant.workshopSubmissions.map((sub) => (
-                  <div
-                    key={sub.id}
-                    className="flex justify-between items-start gap-4 border-b border-slate-100 last:border-none pb-4 last:pb-0"
-                  >
-                    <div>
-                      <h3 className="font-semibold text-slate-900">
-                        {sub.workshop.title}
-                      </h3>
-                      <p className="text-xs text-slate-400 mt-1">
-                        Submitted on{" "}
-                        {new Date(sub.submittedAt).toLocaleDateString()}
-                      </p>
-                      {sub.score !== null && (
-                        <p className="text-sm text-slate-600 mt-1">
-                          Score:{" "}
-                          <span className="font-semibold">{sub.score}</span>
-                        </p>
-                      )}
-                      {sub.feedback && (
-                        <p className="text-sm text-slate-500 mt-1 italic">
-                          &ldquo;{sub.feedback}&rdquo;
-                        </p>
-                      )}
+            {applicant.experiences.length > 0 && (
+              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-emerald-50 rounded-xl">
+                      <Briefcase className="w-5 h-5 text-emerald-600" />
                     </div>
-                    <a
-                      href={sub.submissionUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-eduBlue hover:text-blue-700 transition-colors shrink-0"
-                    >
-                      View
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                    <h2 className="text-lg font-semibold text-slate-900">
+                      Experience
+                    </h2>
                   </div>
-                ))}
+                </div>
+                <div className="p-6 space-y-4">
+                  {applicant.experiences.map((exp) => (
+                    <div
+                      key={exp.id}
+                      className="border-b border-slate-100 last:border-none pb-4 last:pb-0"
+                    >
+                      <h3 className="font-semibold text-slate-900">
+                        {exp.jobTitle}
+                      </h3>
+                      <p className="text-sm text-slate-600 mt-0.5">
+                        {exp.companyName}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {(application.status === "APPLIED" ||
-            application.status === "REVIEWED") && (
-            <div className="md:col-span-2">
-              {application.status === "APPLIED" && (
-                <ReviewApp app={application} />
-              )}
-              {application.status === "REVIEWED" && (
-                <AcceptApp app={application} />
-              )}
-            </div>
-          )}
+            {applicant.workshopSubmissions.length > 0 && (
+              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-amber-50 rounded-xl">
+                      <BookOpen className="w-5 h-5 text-amber-600" />
+                    </div>
+                    <h2 className="text-lg font-semibold text-slate-900">
+                      Completed Workshops
+                    </h2>
+                  </div>
+                </div>
+                <div className="p-6 space-y-4">
+                  {applicant.workshopSubmissions.map((sub) => (
+                    <div
+                      key={sub.id}
+                      className="flex justify-between items-start gap-4 border-b border-slate-100 last:border-none pb-4 last:pb-0"
+                    >
+                      <div>
+                        <h3 className="font-semibold text-slate-900">
+                          {sub.workshop.title}
+                        </h3>
+                        <p className="text-xs text-slate-400 mt-1">
+                          Submitted on{" "}
+                          {new Date(sub.submittedAt).toLocaleDateString()}
+                        </p>
+                        {sub.score !== null && (
+                          <p className="text-sm text-slate-600 mt-1">
+                            Score:{" "}
+                            <span className="font-semibold">{sub.score}</span>
+                          </p>
+                        )}
+                        {sub.feedback && (
+                          <p className="text-sm text-slate-500 mt-1 italic">
+                            &ldquo;{sub.feedback}&rdquo;
+                          </p>
+                        )}
+                      </div>
+                      <a
+                        href={sub.submissionUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-eduBlue hover:text-blue-700 transition-colors shrink-0"
+                      >
+                        View
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="lg:col-span-1 flex flex-col gap-8">
+            {applicant.skills.length > 0 && (
+              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-blue-50 rounded-xl">
+                      <ListCheck className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <h2 className="text-lg font-semibold text-slate-900">
+                      Skills
+                    </h2>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex flex-wrap gap-2">
+                    {applicant.skills.map((s) => (
+                      <span
+                        key={s.id}
+                        className="px-3 py-1.5 rounded-full bg-blue-50 text-sm font-medium text-blue-700"
+                      >
+                        {s.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {applicant.cvs.length > 0 && (
+              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-rose-50 rounded-xl">
+                      <FileText className="w-5 h-5 text-rose-600" />
+                    </div>
+                    <h2 className="text-lg font-semibold text-slate-900">
+                      Resume
+                    </h2>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <a
+                    href={applicant.cvs[0].fileUrl}
+                    target="_blank"
+                    className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-medium hover:bg-slate-100 hover:border-slate-300 transition-all"
+                  >
+                    <Download className="w-4 h-4 text-slate-500" />
+                    Download CV
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {(application.status === "APPLIED" ||
+              application.status === "REVIEWED") && (
+              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-indigo-50 rounded-xl">
+                      <CheckCircle className="w-5 h-5 text-indigo-600" />
+                    </div>
+                    <h2 className="text-lg font-semibold text-slate-900">
+                      Actions
+                    </h2>
+                  </div>
+                </div>
+                <div className="p-6">
+                  {application.status === "APPLIED" && (
+                    <ReviewApp app={application} />
+                  )}
+                  {application.status === "REVIEWED" && (
+                    <AcceptApp app={application} />
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
