@@ -1,24 +1,27 @@
 "use client";
 
 import { reviewApplication, rejectApplication } from "@/actions/jobManagement";
+import { CheckCircle, XCircle } from "lucide-react";
 
 export function ReviewApp({ app }: { app: any }) {
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-col gap-2">
       <form action={reviewApplication.bind(null, app.id)}>
         <button
           disabled={app.status !== "APPLIED"}
-          className="px-4 py-2 rounded-md bg-green-600 text-white text-sm hover:bg-green-700 disabled:opacity-50"
+          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-700 disabled:opacity-50 transition-colors"
         >
-          Review
+          <CheckCircle className="w-4 h-4" />
+          Mark as Reviewed
         </button>
       </form>
 
       <form action={rejectApplication.bind(null, app.id)}>
         <button
           disabled={app.status !== "APPLIED"}
-          className="px-4 py-2 rounded-md bg-red-500 text-white text-sm hover:bg-red-600 disabled:opacity-50"
+          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl border border-red-200 bg-red-50 text-red-600 text-sm font-medium hover:bg-red-100 disabled:opacity-50 transition-colors"
         >
+          <XCircle className="w-4 h-4" />
           Reject
         </button>
       </form>
