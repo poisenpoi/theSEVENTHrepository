@@ -134,9 +134,25 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
             </div>
 
             <div className="flex-1 text-center sm:text-left">
-              <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                {profile?.name || applicant.email}
-              </h1>
+              <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-3">
+                <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                  {profile?.name || applicant.email}
+                </h1>
+                <div
+                  className={`flex items-center gap-2 px-5 py-1.5 rounded-full font-bold text-sm ${status.bg} ${status.text} border ${status.border}`}
+                >
+                  {application.status === "REVIEWED" && (
+                    <Clock className="w-4 h-4" />
+                  )}
+                  {application.status === "ACCEPTED" && (
+                    <CheckCircle className="w-4 h-4" />
+                  )}
+                  {application.status === "REJECTED" && (
+                    <XCircle className="w-4 h-4" />
+                  )}
+                  {status.label}
+                </div>
+              </div>
               <p className="mt-1 text-white/70 text-sm flex items-center justify-center sm:justify-start gap-1.5">
                 <Mail className="w-3.5 h-3.5" />
                 {applicant.email}
@@ -149,28 +165,17 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="flex flex-col items-center sm:items-end gap-3">
-              <div
-                className={`w-full flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold text-base ${status.bg} ${status.text} border ${status.border}`}
-              >
+            {(application.status === "APPLIED" ||
+              application.status === "REVIEWED") && (
+              <div className="flex items-center">
+                {application.status === "APPLIED" && (
+                  <ReviewApp app={application} />
+                )}
                 {application.status === "REVIEWED" && (
-                  <Clock className="w-5 h-5" />
+                  <AcceptApp app={application} />
                 )}
-                {application.status === "ACCEPTED" && (
-                  <CheckCircle className="w-5 h-5" />
-                )}
-                {application.status === "REJECTED" && (
-                  <XCircle className="w-5 h-5" />
-                )}
-                {status.label}
               </div>
-              {application.status === "APPLIED" && (
-                <ReviewApp app={application} />
-              )}
-              {application.status === "REVIEWED" && (
-                <AcceptApp app={application} />
-              )}
-            </div>
+            )}
           </div>
         </div>
       </div>
