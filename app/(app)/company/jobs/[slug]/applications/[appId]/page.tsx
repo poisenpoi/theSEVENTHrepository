@@ -134,9 +134,25 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
             </div>
 
             <div className="flex-1 text-center sm:text-left">
-              <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                {profile?.name || applicant.email}
-              </h1>
+              <div className="flex flex-col sm:flex-row items-center sm:items-center gap-2">
+                <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                  {profile?.name || applicant.email}
+                </h1>
+                <div
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full font-semibold text-xs ${status.bg} ${status.text} border ${status.border}`}
+                >
+                  {application.status === "REVIEWED" && (
+                    <Clock className="w-3.5 h-3.5" />
+                  )}
+                  {application.status === "ACCEPTED" && (
+                    <CheckCircle className="w-3.5 h-3.5" />
+                  )}
+                  {application.status === "REJECTED" && (
+                    <XCircle className="w-3.5 h-3.5" />
+                  )}
+                  {status.label}
+                </div>
+              </div>
               <p className="mt-1 text-white/70 text-sm flex items-center justify-center sm:justify-start gap-1.5">
                 <Mail className="w-3.5 h-3.5" />
                 {applicant.email}
@@ -149,28 +165,17 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div
-                className={`flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm ${status.bg} ${status.text} border ${status.border}`}
-              >
+            {(application.status === "APPLIED" ||
+              application.status === "REVIEWED") && (
+              <div className="shrink-0">
+                {application.status === "APPLIED" && (
+                  <ReviewApp app={application} />
+                )}
                 {application.status === "REVIEWED" && (
-                  <Clock className="w-4 h-4" />
+                  <AcceptApp app={application} />
                 )}
-                {application.status === "ACCEPTED" && (
-                  <CheckCircle className="w-4 h-4" />
-                )}
-                {application.status === "REJECTED" && (
-                  <XCircle className="w-4 h-4" />
-                )}
-                {status.label}
               </div>
-              {application.status === "APPLIED" && (
-                <ReviewApp app={application} />
-              )}
-              {application.status === "REVIEWED" && (
-                <AcceptApp app={application} />
-              )}
-            </div>
+            )}
           </div>
         </div>
       </div>
