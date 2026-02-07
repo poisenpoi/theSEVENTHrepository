@@ -406,28 +406,6 @@ export default function ProfileView({
               </div>
             ) : (
               <>
-                <StatCard
-                  label="Enrollments"
-                  value={totalEnrollments}
-                  icon={<HeartHandshake className="w-5 h-5" />}
-                  iconBg="bg-yellow-50"
-                  iconColor="text-yellow-600"
-                />
-                <StatCard
-                  label="Certificates"
-                  value={completedEnrollments}
-                  icon={<TicketCheck className="w-5 h-5" />}
-                  iconBg="bg-orange-50"
-                  iconColor="text-orange-600"
-                />
-                <StatCard
-                  label="Job Applications"
-                  value={totalJobApplications}
-                  icon={<FileUser className="w-5 h-5" />}
-                  iconBg="bg-cyan-50"
-                  iconColor="text-cyan-600"
-                />
-
                 <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
                   <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -498,6 +476,28 @@ export default function ProfileView({
                     )}
                   </div>
                 </div>
+
+                <StatCard
+                  label="Enrollments"
+                  value={totalEnrollments}
+                  icon={<HeartHandshake className="w-5 h-5" />}
+                  iconBg="bg-yellow-50"
+                  iconColor="text-yellow-600"
+                />
+                <StatCard
+                  label="Certificates"
+                  value={completedEnrollments}
+                  icon={<TicketCheck className="w-5 h-5" />}
+                  iconBg="bg-orange-50"
+                  iconColor="text-orange-600"
+                />
+                <StatCard
+                  label="Job Applications"
+                  value={totalJobApplications}
+                  icon={<FileUser className="w-5 h-5" />}
+                  iconBg="bg-cyan-50"
+                  iconColor="text-cyan-600"
+                />
               </>
             )}
           </div>
