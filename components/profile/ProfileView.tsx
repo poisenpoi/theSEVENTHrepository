@@ -218,8 +218,8 @@ export default function ProfileView({
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-stretch">
-          <div className="lg:col-span-3 flex flex-col gap-8 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="lg:col-span-2 flex flex-col gap-8 h-full">
             {(() => {
               switch (user.role) {
                 case "COMPANY":
@@ -369,7 +369,7 @@ export default function ProfileView({
             </div>
           </div>
 
-          <div className="lg:col-span-1 flex flex-col h-full justify-between gap-6">
+          <div className="lg:col-span-1 flex flex-col h-full gap-6">
             {user.role === "COMPANY" ? (
               <div className="contents">
                 <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 flex flex-col justify-center items-center text-center gap-3">
@@ -406,6 +406,77 @@ export default function ProfileView({
               </div>
             ) : (
               <>
+                <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                  <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-indigo-50 rounded-xl">
+                        <ListCheck className="w-5 h-5 text-indigo-600" />
+                      </div>
+                      <h2 className="text-lg font-semibold">Skills</h2>
+                    </div>
+
+                    <AddSkillPopover
+                      onAdd={async (name) => {
+                        await addSkill(name, user.id);
+                        window.location.reload();
+                      }}
+                    />
+                  </div>
+
+                  <div className="p-6">
+                    {skills.length ? (
+                      <div className="flex flex-wrap gap-2">
+                        {skills.map((skill) => (
+                          <div
+                            key={skill.id}
+                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50"
+                          >
+                            <span className="text-sm font-medium text-blue-700">
+                              {skill.name}
+                            </span>
+
+                            <button
+                              onClick={() => setSkillToEdit(skill)}
+                              className="text-blue-600 hover:text-blue-800"
+                            >
+                              <Pencil className="w-3.5 h-3.5" />
+                            </button>
+
+                            <button
+                              onClick={() => setSkillToDelete(skill)}
+                              className="text-red-500 hover:text-red-700"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-slate-400 italic">No skills added yet</p>
+                    )}
+                    {skillToEdit && (
+                      <EditSkillPopover
+                        skill={skillToEdit}
+                        onClose={() => setSkillToEdit(null)}
+                      />
+                    )}
+                    {skillToDelete && (
+                      <ConfirmDialog
+                        open={true}
+                        title="Delete skill"
+                        description={`Are you sure you want to delete "${skillToDelete.name}"?`}
+                        confirmText="Delete"
+                        onCancel={() => setSkillToDelete(null)}
+                        onConfirm={async () => {
+                          await deleteSkill(skillToDelete.id);
+                          setSkillToDelete(null);
+                          window.location.reload();
+                        }}
+                      />
+                    )}
+                  </div>
+                </div>
+
                 <StatCard
                   label="Enrollments"
                   value={totalEnrollments}
@@ -434,77 +505,6 @@ export default function ProfileView({
 
         {user.role === "EDUCATEE" && (
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-indigo-50 rounded-xl">
-                    <ListCheck className="w-5 h-5 text-indigo-600" />
-                  </div>
-                  <h2 className="text-lg font-semibold">Skills</h2>
-                </div>
-
-                <AddSkillPopover
-                  onAdd={async (name) => {
-                    await addSkill(name, user.id);
-                    window.location.reload();
-                  }}
-                />
-              </div>
-
-              <div className="p-6">
-                {skills.length ? (
-                  <div className="flex flex-wrap gap-2">
-                    {skills.map((skill) => (
-                      <div
-                        key={skill.id}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50"
-                      >
-                        <span className="text-sm font-medium text-blue-700">
-                          {skill.name}
-                        </span>
-
-                        <button
-                          onClick={() => setSkillToEdit(skill)}
-                          className="text-blue-600 hover:text-blue-800"
-                        >
-                          <Pencil className="w-3.5 h-3.5" />
-                        </button>
-
-                        <button
-                          onClick={() => setSkillToDelete(skill)}
-                          className="text-red-500 hover:text-red-700"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-slate-400 italic">No skills added yet</p>
-                )}
-                {skillToEdit && (
-                  <EditSkillPopover
-                    skill={skillToEdit}
-                    onClose={() => setSkillToEdit(null)}
-                  />
-                )}
-                {skillToDelete && (
-                  <ConfirmDialog
-                    open={true}
-                    title="Delete skill"
-                    description={`Are you sure you want to delete "${skillToDelete.name}"?`}
-                    confirmText="Delete"
-                    onCancel={() => setSkillToDelete(null)}
-                    onConfirm={async () => {
-                      await deleteSkill(skillToDelete.id);
-                      setSkillToDelete(null);
-                      window.location.reload();
-                    }}
-                  />
-                )}
-              </div>
-            </div>
-
             <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
               <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
                 <div className="flex items-center gap-3">
