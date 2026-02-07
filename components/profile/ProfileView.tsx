@@ -355,10 +355,9 @@ export default function ProfileView({
           </>
         ) : (
           <>
-            {/* Row 1: Personal Information (3/4) + Skills (1/4) */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-stretch">
-              <div className="lg:col-span-3">
-                <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden h-full">
+              <div className="lg:col-span-3 flex flex-col gap-8 h-full">
+                <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
                   <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100">
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-indigo-50 rounded-xl">
@@ -402,10 +401,35 @@ export default function ProfileView({
                     </div>
                   </div>
                 </div>
+
+                <div className="flex flex-col flex-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                  <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100 shrink-0">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-amber-50 rounded-xl">
+                        <FileText className="w-5 h-5 text-amber-600" />
+                      </div>
+                      <h2 className="text-lg font-semibold text-slate-900">
+                        About Me
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="p-6 flex-1">
+                    {profile?.bio ? (
+                      <p className="text-slate-600 text-base leading-relaxed whitespace-pre-wrap">
+                        {profile.bio}
+                      </p>
+                    ) : (
+                      <p className="text-slate-400 italic text-base">
+                        No bio added yet
+                      </p>
+                    )}
+                  </div>
+                </div>
               </div>
 
-              <div className="lg:col-span-1">
-                <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden h-full flex flex-col">
+              <div className="lg:col-span-1 flex flex-col h-full gap-6">
+                {/* Skills card */}
+                <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
                   <div className="px-6 py-4 bg-slate-50 flex items-center justify-between shrink-0">
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-indigo-50 rounded-xl">
@@ -422,7 +446,7 @@ export default function ProfileView({
                     />
                   </div>
 
-                  <div className="p-6 flex-1">
+                  <div className="p-6">
                     {skills.length ? (
                       <div className="flex flex-wrap gap-2">
                         {skills.map((skill) => (
@@ -477,38 +501,8 @@ export default function ProfileView({
                     )}
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Row 2: About Me (3/4) + Stats (1/4) */}
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-stretch mt-8">
-              <div className="lg:col-span-3">
-                <div className="flex flex-col flex-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden h-full">
-                  <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100 shrink-0">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-amber-50 rounded-xl">
-                        <FileText className="w-5 h-5 text-amber-600" />
-                      </div>
-                      <h2 className="text-lg font-semibold text-slate-900">
-                        About Me
-                      </h2>
-                    </div>
-                  </div>
-                  <div className="p-6 flex-1">
-                    {profile?.bio ? (
-                      <p className="text-slate-600 text-base leading-relaxed whitespace-pre-wrap">
-                        {profile.bio}
-                      </p>
-                    ) : (
-                      <p className="text-slate-400 italic text-base">
-                        No bio added yet
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-1 flex flex-col gap-6">
+                {/* Stat cards */}
                 <StatCard
                   label="Enrollments"
                   value={totalEnrollments}
@@ -533,7 +527,7 @@ export default function ProfileView({
               </div>
             </div>
 
-            {/* Row 3: Education + Work Experience */}
+            {/* Education + Work Experience */}
             <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
                 <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
