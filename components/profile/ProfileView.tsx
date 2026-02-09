@@ -352,7 +352,7 @@ export default function ProfileView({
 
           {user.role === "EDUCATEE" && (
             <div className="lg:col-span-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
+              <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-indigo-50 rounded-xl">
                     <ListCheck className="w-5 h-5 text-indigo-600" />
@@ -495,7 +495,7 @@ export default function ProfileView({
         {user.role === "EDUCATEE" && (
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
+              <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-violet-50 rounded-xl">
                     <IdCard className="w-5 h-5 text-violet-600" />
@@ -549,7 +549,7 @@ export default function ProfileView({
             </div>
 
             <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
+              <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-emerald-50 rounded-xl">
                     <Briefcase className="w-5 h-5 text-emerald-600" />
