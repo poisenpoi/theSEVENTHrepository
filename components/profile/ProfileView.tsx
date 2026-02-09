@@ -302,7 +302,7 @@ export default function ProfileView({
 
               default:
                 return (
-                  <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden self-end">
+                  <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
                     <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100">
                       <div className="flex items-center gap-3">
                         <div className="p-2 bg-indigo-50 rounded-xl">
@@ -351,7 +351,7 @@ export default function ProfileView({
           })()}
 
           {user.role === "EDUCATEE" && (
-            <div className="lg:col-span-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden self-end">
+            <div className="lg:col-span-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
               <div className="px-4 py-3 bg-slate-50 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-indigo-50 rounded-xl">
