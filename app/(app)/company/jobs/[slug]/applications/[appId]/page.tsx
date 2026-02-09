@@ -4,7 +4,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { ReviewApp } from "@/components/jobs/ReviewApp";
 import { AcceptApp } from "@/components/jobs/AcceptApp";
 import type { Metadata } from "next";
-import Link from "next/link";
+import BackButton from "@/components/BackButton";
 import {
   User,
   Calendar,
@@ -15,7 +15,6 @@ import {
   ListCheck,
   FileText,
   BookOpen,
-  ArrowLeft,
   ExternalLink,
   CheckCircle,
   Clock,
@@ -110,13 +109,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50/30">
       <div className="bg-eduBlue">
         <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
-          <Link
-            href={`/company/jobs/${slug}/applications`}
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Applications
-          </Link>
+          <BackButton />
 
           <div className="mt-6 flex flex-col sm:flex-row items-center gap-6">
             <div className="w-20 h-20 rounded-full overflow-hidden bg-white flex items-center justify-center text-2xl font-bold text-eduBlue shrink-0">
