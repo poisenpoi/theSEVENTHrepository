@@ -218,7 +218,7 @@ export default function ProfileView({
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-[auto_1fr] gap-8">
           {(() => {
             switch (user.role) {
               case "COMPANY":
@@ -302,7 +302,7 @@ export default function ProfileView({
 
               default:
                 return (
-                  <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden self-start">
+                  <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden self-end">
                     <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100">
                       <div className="flex items-center gap-3">
                         <div className="p-2 bg-indigo-50 rounded-xl">
@@ -351,7 +351,7 @@ export default function ProfileView({
           })()}
 
           {user.role === "EDUCATEE" && (
-            <div className="lg:col-span-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden self-start">
+            <div className="lg:col-span-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden self-end">
               <div className="px-4 py-3 bg-slate-50 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-indigo-50 rounded-xl">
@@ -423,7 +423,7 @@ export default function ProfileView({
             </div>
           )}
 
-          <div className="lg:col-span-1 flex flex-col h-full justify-between gap-6">
+          <div className="lg:col-span-1 lg:row-span-2 flex flex-col h-full justify-between gap-6">
             {user.role === "COMPANY" ? (
               <div className="contents">
                 <StatCard
@@ -467,7 +467,7 @@ export default function ProfileView({
               </>
             )}
           </div>
-          <div className="lg:col-span-3 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+          <div className="lg:col-span-3 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden flex flex-col min-h-0">
             <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-amber-50 rounded-xl">
@@ -478,7 +478,7 @@ export default function ProfileView({
                 </h2>
               </div>
             </div>
-            <div className="p-6">
+            <div className="p-6 overflow-y-auto flex-1 min-h-0">
               {profile?.bio ? (
                 <p className="text-slate-600 text-base leading-relaxed whitespace-pre-wrap">
                   {profile.bio}
