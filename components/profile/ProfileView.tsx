@@ -302,7 +302,7 @@ export default function ProfileView({
 
               default:
                 return (
-                  <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                  <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden self-start">
                     <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100">
                       <div className="flex items-center gap-3">
                         <div className="p-2 bg-indigo-50 rounded-xl">
@@ -314,7 +314,7 @@ export default function ProfileView({
                       </div>
                     </div>
                     <div className="p-6">
-                      <div className="grid grid-cols-1 gap-y-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                         <DetailItem
                           icon={<CaseSensitive className="w-4 h-4" />}
                           label="Full Name"
@@ -351,8 +351,8 @@ export default function ProfileView({
           })()}
 
           {user.role === "EDUCATEE" && (
-            <div className="lg:col-span-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-              <div className="px-6 py-4 bg-slate-50 flex items-center justify-between">
+            <div className="lg:col-span-1 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden self-start">
+              <div className="px-4 py-3 bg-slate-50 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-indigo-50 rounded-xl">
                     <ListCheck className="w-5 h-5 text-indigo-600" />
@@ -368,7 +368,7 @@ export default function ProfileView({
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-4">
                 {skills.length ? (
                   <div className="flex flex-wrap gap-2">
                     {skills.map((skill) => (
@@ -467,29 +467,28 @@ export default function ProfileView({
               </>
             )}
           </div>
-        </div>
-
-        <div className="mt-8 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
-          <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100 shrink-0">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-amber-50 rounded-xl">
-                <FileText className="w-5 h-5 text-amber-600" />
+          <div className="lg:col-span-3 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+            <div className="px-6 py-4 bg-linear-to-r from-slate-50 to-white border-b border-slate-100 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-amber-50 rounded-xl">
+                  <FileText className="w-5 h-5 text-amber-600" />
+                </div>
+                <h2 className="text-lg font-semibold text-slate-900">
+                  About Me
+                </h2>
               </div>
-              <h2 className="text-lg font-semibold text-slate-900">
-                About Me
-              </h2>
             </div>
-          </div>
-          <div className="p-6">
-            {profile?.bio ? (
-              <p className="text-slate-600 text-base leading-relaxed whitespace-pre-wrap">
-                {profile.bio}
-              </p>
-            ) : (
-              <p className="text-slate-400 italic text-base">
-                No bio added yet
-              </p>
-            )}
+            <div className="p-6">
+              {profile?.bio ? (
+                <p className="text-slate-600 text-base leading-relaxed whitespace-pre-wrap">
+                  {profile.bio}
+                </p>
+              ) : (
+                <p className="text-slate-400 italic text-base">
+                  No bio added yet
+                </p>
+              )}
+            </div>
           </div>
         </div>
 
