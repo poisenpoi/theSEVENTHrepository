@@ -109,7 +109,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50/30">
       <div className="bg-eduBlue">
         <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
-          <BackButton />
+          <BackButton label="Back to Applications" />
 
           <div className="mt-6 flex flex-col sm:flex-row items-center gap-6">
             <div className="w-20 h-20 rounded-full overflow-hidden bg-white flex items-center justify-center text-2xl font-bold text-eduBlue shrink-0">
