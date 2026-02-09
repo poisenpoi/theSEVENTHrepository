@@ -107,12 +107,12 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50/30">
-      <div className="bg-eduBlue">
+      <div className="bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
-          <BackButton label="Back to Applications" />
+          <BackButton />
 
           <div className="mt-6 flex flex-col sm:flex-row items-center gap-6">
-            <div className="w-20 h-20 rounded-full overflow-hidden bg-white flex items-center justify-center text-2xl font-bold text-eduBlue shrink-0">
+            <div className="w-20 h-20 rounded-full overflow-hidden bg-slate-50 ring-1 ring-slate-200 flex items-center justify-center text-2xl font-bold text-eduBlue shrink-0">
               {profile?.pictureUrl ? (
                 <img
                   src={profile.pictureUrl}
@@ -128,7 +128,7 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
 
             <div className="flex-1 text-center sm:text-left">
               <div className="flex flex-col sm:flex-row items-center gap-3">
-                <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-none">
+                <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-none">
                   {profile?.name || applicant.email}
                 </h1>
                 <div
@@ -157,13 +157,13 @@ export default async function ApplicantDetailPage({ params }: PageProps) {
                   </div>
                 )}
               </div>
-              <p className="mt-1 text-white/70 text-sm flex items-center justify-center sm:justify-start gap-1.5">
+              <p className="mt-1 text-slate-500 text-sm flex items-center justify-center sm:justify-start gap-1.5">
                 <Mail className="w-3.5 h-3.5" />
                 {applicant.email}
               </p>
-              <p className="mt-2 text-white/80 text-sm">
+              <p className="mt-2 text-slate-600 text-sm">
                 Applied for{" "}
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-slate-900">
                   {application.job.title}
                 </span>
               </p>
