@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { JobUI } from "@/types/job.ui";
 import { ApplicationStatus, User, Profile } from "@prisma/client";
-import BackButton from "@/components/ui/BackButton";
+import BackButton from "../BackButton";
 import { applyJob } from "@/actions/applyJob";
 
 interface JobDetailsProps {
