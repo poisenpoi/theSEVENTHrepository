@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import BackButton from "@/components/BackButton";
 import UpdatePathPopover from "@/components/admin/UpdatePath";
 import { PathUI } from "@/types/path.ui";
 import DeletePathButton from "@/components/admin/DeletePath";
@@ -58,10 +58,7 @@ export default async function AdminPathDetailPage({
 
   return (
     <div className="flex flex-col gap-5">
-      <Link href={"/admin/paths"} className="flex items-center gap-1">
-        <ArrowLeft className="h-5 w-5" />
-        <span className="leading-none">Back to paths</span>
-      </Link>
+      <BackButton />
       <h1 className="text-2xl font-bold">{path.title}</h1>
       <div className="flex gap-3">
         <UpdatePathPopover path={path} />

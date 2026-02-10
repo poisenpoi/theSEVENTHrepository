@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Star } from "lucide-react";
+import { Star } from "lucide-react";
+import BackButton from "@/components/BackButton";
 import { getCategories } from "@/lib/data/categories";
 import UpdateCoursePopover from "@/components/admin/UpdateCourse";
 import DeleteCourseButton from "@/components/admin/DeleteCourse";
@@ -48,10 +49,7 @@ export default async function AdminCourseDetailPage({
 
   return (
     <div className="flex flex-col gap-5">
-      <Link href={"/admin/courses"} className="flex items-center gap-1">
-        <ArrowLeft className="h-5 w-5" />
-        <span className="leading-none">Back to courses</span>
-      </Link>
+      <BackButton />
       <h1 className="text-2xl font-bold">{course.title}</h1>
       <div className="flex gap-3">
         <UpdateCoursePopover path={course} categories={categories} />
