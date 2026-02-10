@@ -2,13 +2,13 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import type { Metadata } from "next";
-import ApplicantHeader from "@/components/jobs/ApplicantHeader";
-import PersonalInfoCard from "@/components/jobs/PersonalInfoCard";
-import EducationCard from "@/components/jobs/EducationCard";
-import ExperienceCard from "@/components/jobs/ExperienceCard";
-import WorkshopsCard from "@/components/jobs/WorkshopsCard";
-import SkillsCard from "@/components/jobs/SkillsCard";
-import ResumeCard from "@/components/jobs/ResumeCard";
+import ApplicantHeader from "@/components/jobapplications/ApplicantHeader";
+import PersonalInfoCard from "@/components/jobapplications/PersonalInfoCard";
+import EducationCard from "@/components/jobapplications/EducationCard";
+import ExperienceCard from "@/components/jobapplications/ExperienceCard";
+import WorkshopsCard from "@/components/jobapplications/WorkshopsCard";
+import SkillsCard from "@/components/jobapplications/SkillsCard";
+import ResumeCard from "@/components/jobapplications/ResumeCard";
 
 interface PageProps {
   params: {
