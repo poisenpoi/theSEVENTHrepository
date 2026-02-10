@@ -3,7 +3,11 @@
 import { useRouter } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 
-export default function BackButton() {
+interface BackButtonProps {
+  text?: string;
+}
+
+export default function BackButton({ text = "Previous page" }: BackButtonProps) {
   const router = useRouter();
 
   return (
@@ -12,8 +16,8 @@ export default function BackButton() {
       className="flex items-center gap-1 font-bold text-sm mb-4 cursor-pointer"
     >
       <ChevronLeft className="w-4 h-4 text-slate-400 block" />
-      <span className="text-sm text-eduBlue hover:text-eduBlue/80 transition-colors flex items-center gap-1 font-medium  leading-none">
-        Previous page
+      <span className="text-sm text-eduBlue hover:text-eduBlue/80 transition-colors font-medium">
+        {text}
       </span>
     </div>
   );
