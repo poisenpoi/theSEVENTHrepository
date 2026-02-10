@@ -1,7 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { verifyCorp, unverifyCorp } from "@/actions/compAdmin";
+import BackButton from "@/components/BackButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -33,10 +32,7 @@ export default async function ReviewCorpPage({
 
   return (
     <div className="space-y-4">
-      <Link href={"/admin/companies"} className="flex items-center gap-1">
-        <ArrowLeft className="h-5 w-5" />
-        <span className="leading-none">Back to companies</span>
-      </Link>
+      <BackButton />
       <h1 className="text-xl font-bold">Company Review</h1>
 
       <p>

@@ -13,8 +13,8 @@ import {
   XCircle,
   ChevronRight,
   Briefcase,
-  ArrowLeft,
 } from "lucide-react";
+import BackButton from "@/components/BackButton";
 
 interface PageProps {
   params: Promise<{
@@ -115,13 +115,7 @@ export default async function JobApplicantsPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           <div className="flex justify-between gap-6">
             <div>
-              <Link
-                href="/dashboard"
-                className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-6"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span className="text-sm font-medium">Back to Dashboard</span>
-              </Link>
+              <BackButton />
 
               <div className="flex items-center gap-3 flex-wrap mb-4">
                 <span className="bg-eduBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
