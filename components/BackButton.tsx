@@ -9,10 +9,10 @@ export default function BackButton() {
   return (
     <div
       onClick={() => router.back()}
-      className="flex items-center gap-1 font-bold text-sm mb-4 cursor-pointer"
+      className="inline-flex items-center gap-1 text-sm mb-4 cursor-pointer"
     >
-      <ChevronLeft className="w-4 h-4 text-slate-400 block" />
-      <span className="text-sm text-eduBlue hover:text-eduBlue/80 transition-colors flex items-center gap-1 font-medium  leading-none">
+      <ChevronLeft className="w-4 h-4 text-slate-400 shrink-0" />
+      <span className="text-sm text-eduBlue hover:text-eduBlue/80 transition-colors font-medium">
         Previous page
       </span>
     </div>
