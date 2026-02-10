@@ -39,7 +39,6 @@ export default function CourseItemCard({
         }
       `}
     >
-      {/* Icon */}
       <div
         className={`
           flex h-10 w-10 shrink-0 items-center justify-center rounded-full
@@ -62,7 +61,6 @@ export default function CourseItemCard({
         )}
       </div>
 
-      {/* Content */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
           <h3
@@ -96,7 +94,6 @@ export default function CourseItemCard({
         <p className="text-xs text-slate-400">Lesson {index + 1}</p>
       </div>
 
-      {/* Right icon */}
       <div className="text-slate-300">
         {completed ? (
           <CheckCircle className="h-4 w-4 text-emerald-500" />

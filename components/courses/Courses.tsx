@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import { Search, Filter, ChevronDown, X, Star } from "lucide-react";
-import CourseCard from "@/components/CourseCard";
+import CourseCard from "@/components/courses/CourseCard";
 import { CourseUI } from "@/types/course.ui";
 import { useRouter, useSearchParams } from "next/navigation";
 import { CategoryUI } from "@/types/category.ui";
@@ -124,8 +124,8 @@ export default function Courses({
         <div className="flex flex-col lg:flex-row gap-8">
           <aside
             className={`z-40
-            fixed inset-0 bg-white lg:bg-transparent 
-            lg:sticky lg:top-6 lg:w-64 lg:block lg:h-[calc(100vh-3rem)] lg:overflow-y-auto 
+            fixed inset-0 bg-white lg:bg-transparent
+            lg:sticky lg:top-6 lg:w-64 lg:block lg:h-[calc(100vh-3rem)] lg:overflow-y-auto
             overflow-y-auto transition-transform duration-300 ease-in-out
             ${
               mobileFiltersOpen
@@ -264,7 +264,6 @@ export default function Courses({
             </div>
           </aside>
 
-          {/* main contents */}
           <main className="flex-1">
             <div className="flex items-center justify-between mb-6">
               <p className="text-slate-500 font-medium">

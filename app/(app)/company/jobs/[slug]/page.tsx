@@ -14,7 +14,7 @@ import {
   ChevronRight,
   Briefcase,
 } from "lucide-react";
-import BackButton from "@/components/BackButton";
+import BackButton from "@/components/ui/BackButton";
 
 interface PageProps {
   params: Promise<{

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import RatingPopover from "./Rating";
+import RatingPopover from "@/components/ui/Rating";
 import { rateCourse } from "@/actions/rate-course";
 
 type Props = {

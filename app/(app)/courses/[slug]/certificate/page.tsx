@@ -2,8 +2,8 @@ import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import { generatePdfCertificate } from "@/lib/certGenerator";
-import CertificateComponent from "@/components/Certificate";
-import PrintButton from "@/components/PrintButton";
+import CertificateComponent from "@/components/courses/Certificate";
+import PrintButton from "@/components/courses/PrintButton";
 import { Certificate } from "@prisma/client";
 import type { Metadata } from "next";
 

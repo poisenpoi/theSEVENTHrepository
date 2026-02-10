@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Star } from "lucide-react";
-import BackButton from "@/components/BackButton";
+import BackButton from "@/components/ui/BackButton";
 import { getCategories } from "@/lib/data/categories";
 import UpdateCoursePopover from "@/components/admin/UpdateCourse";
 import DeleteCourseButton from "@/components/admin/DeleteCourse";

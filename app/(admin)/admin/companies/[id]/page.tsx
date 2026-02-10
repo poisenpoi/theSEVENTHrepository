@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { verifyCorp, unverifyCorp } from "@/actions/compAdmin";
-import BackButton from "@/components/BackButton";
+import BackButton from "@/components/ui/BackButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

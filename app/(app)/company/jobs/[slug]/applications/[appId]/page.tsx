@@ -4,7 +4,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { ReviewApp } from "@/components/jobs/ReviewApp";
 import { AcceptApp } from "@/components/jobs/AcceptApp";
 import type { Metadata } from "next";
-import BackButton from "@/components/BackButton";
+import BackButton from "@/components/ui/BackButton";
 import {
   User,
   Calendar,
