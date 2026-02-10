@@ -2,7 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
-import CourseItemViewer from "@/components/CourseItemViewer";
+import CourseItemViewer from "@/components/courses/CourseItemViewer";
 
 export const dynamic = "force-dynamic";
 

@@ -31,19 +31,19 @@ import {
   Briefcase,
   Trash2,
 } from "lucide-react";
-import AddSkillPopover from "../AddSkillsPopover";
+import AddSkillPopover from "./AddSkillsPopover";
 import {
   addSkill,
   addExperience,
   deleteSkill,
   addEducation,
 } from "@/actions/moreProfile";
-import AddExperiencePopover from "../AddExperiencesPopover";
+import AddExperiencePopover from "./AddExperiencesPopover";
 import ExperienceActions from "./ExperienceAction";
 import EditSkillPopover from "./EditSkillPopover";
-import ConfirmDialog from "../ui/ConfirmDialog";
+import ConfirmDialog from "@/components/ui/ConfirmDialog";
 import { generateUserCV } from "@/actions/generateCV";
-import AddEducationsPopover from "../AddEducationsPopover";
+import AddEducationsPopover from "./AddEducationsPopover";
 import EducationActions from "./EducationAction";
 
 type ProfileViewProps = {

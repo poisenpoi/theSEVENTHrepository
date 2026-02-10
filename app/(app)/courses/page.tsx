@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Courses from "@/components/Courses";
+import Courses from "@/components/courses/Courses";
 import { getCourses } from "@/lib/data/courses";
 import { getCategories } from "@/lib/data/categories";
 import { getCurrentUser } from "@/lib/auth";

@@ -7,7 +7,7 @@ import {
   ChevronRight,
   ExternalLink,
 } from "lucide-react";
-import BackButton from "./BackButton";
+import BackButton from "@/components/ui/BackButton";
 import { handleMark, handleSubmitWorkshop } from "@/actions/markItem";
 
 interface CourseItemViewerProps {
@@ -132,7 +132,6 @@ export default function CourseItemViewer({
         {item.type === "WORKSHOP" && item.workshop && (
           <div className="p-0">
             <div className="p-8 space-y-8">
-              {/* Instructions */}
               <div className="prose prose-slate max-w-none">
                 <h3 className="text-lg font-bold text-slate-900 mb-4">
                   Instructions

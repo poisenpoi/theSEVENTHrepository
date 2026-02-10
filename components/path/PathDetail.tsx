@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Clock, PlayCircle } from "lucide-react";
 import { PathDetailUI } from "@/types/path.ui";
-import { FavoriteButton } from "../FavoriteButton";
-import BackButton from "../BackButton";
+import { FavoriteButton } from "@/components/courses/FavoriteButton";
+import BackButton from "@/components/ui/BackButton";
 
 export default function PathDetails({
   path,
@@ -29,7 +29,6 @@ export default function PathDetails({
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 pb-20">
-      {/* sub header */}
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <BackButton />
@@ -104,14 +103,12 @@ export default function PathDetails({
         </div>
       </div>
 
-      {/* timeline */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-xl font-bold text-slate-900 mb-10">
           Path Curriculum
         </h2>
 
         <div className="relative">
-          {/* vertical line */}
           <div className="absolute left-8 top-4 bottom-4 w-0.5 bg-slate-200 hidden md:block" />
 
           <div className="space-y-8">
@@ -123,14 +120,12 @@ export default function PathDetails({
                   key={item.id}
                   className="relative flex flex-col md:flex-row gap-6 md:gap-10 group"
                 >
-                  {/* number */}
                   <div className="hidden md:flex flex-none z-10">
                     <div className="w-16 h-16 rounded-full bg-white border-2 border-eduBlue text-eduBlue font-bold text-2xl flex items-center justify-center shadow-sm group-hover:bg-eduBlue group-hover:text-white transition-colors duration-300">
                       {index + 1}
                     </div>
                   </div>
 
-                  {/* number mobile */}
                   <div className="md:hidden flex items-center gap-3 mb-2">
                     <span className="flex items-center justify-center w-8 h-8 rounded-full bg-eduBlue text-white font-bold text-sm">
                       {index + 1}
@@ -140,13 +135,11 @@ export default function PathDetails({
                     </span>
                   </div>
 
-                  {/* card */}
                   <Link
                     href={`/courses/${course.slug}`}
                     className="grow bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-slate-200/60 hover:border-eduBlue/30 transition-all duration-300 group-hover:-translate-y-1"
                   >
                     <div className="flex flex-col sm:flex-row gap-6">
-                      {/* thumbnail */}
                       <div className="w-full sm:w-48 h-32 flex-none rounded-xl overflow-hidden bg-slate-100 relative">
                         <img
                           src={course.thumbnailUrl || "/thumbnail.jpeg"}
@@ -162,7 +155,6 @@ export default function PathDetails({
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
                       </div>
 
-                      {/* info */}
                       <div className="flex flex-col justify-between grow">
                         <div>
                           <div className="flex items-center gap-2 mb-2">
@@ -196,7 +188,6 @@ export default function PathDetails({
                         </div>
                       </div>
 
-                      {/* arrow icon */}
                       <div className="hidden sm:flex flex-col justify-center items-center pl-4 border-l border-slate-100">
                         <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-eduBlue group-hover:text-white transition-all">
                           <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-white" />
@@ -209,7 +200,6 @@ export default function PathDetails({
             })}
           </div>
 
-          {/* finish node */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 mt-8 opacity-50">
             <div className="hidden md:flex flex-none z-10 ml-5">
               <div className="w-6 h-6 rounded-full bg-slate-200 border-4 border-white shadow-sm" />

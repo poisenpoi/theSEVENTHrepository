@@ -50,25 +50,9 @@ export default function CourseCard({
           <span className="font-bold text-slate-900">
             {Number(course.avgRating).toFixed(1)}
           </span>
-          <span className="text-slate-400">•</span>
+          <span className="text-slate-400">&bull;</span>
           <span className="text-slate-500">{course.reviewCount} reviews</span>
         </div>
-
-        {/* <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
-          <span className="font-bold text-eduBlue text-sm">View Syllabus</span>
-          <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-eduBlue transition-colors">
-            <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
-          </div>
-        </div> */}
-
-        {/* <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
-          <span className="text-sm font-semibold text-eduBlue">
-            View syllabus
-          </span>
-          <div className="w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-eduBlue transition-colors">
-            <ArrowRight className="w-4.5 h-4.5 text-slate-400 group-hover:text-white transition-colors" />
-          </div>
-        </div> */}
       </div>
     </Link>
   );
