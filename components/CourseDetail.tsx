@@ -17,7 +17,7 @@ import { FavoriteButton } from "./FavoriteButton";
 import { CourseItem } from "@prisma/client";
 import CourseRating from "./CourseRating";
 import CourseItemCard from "./ItemCard";
-import BackButton from "@/components/ui/BackButton";
+import BackButton from "./BackButton";
 
 interface CourseDetailsProps {
   course: CourseDetailUI;
@@ -58,6 +58,7 @@ export default async function CourseDetails({
 
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
+      {/* header */}
       <div className="bg-slate-900 text-white border-b border-slate-800 relative z-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-11.25">
           <BackButton />
@@ -89,6 +90,7 @@ export default async function CourseDetails({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Sidebar */}
           <div className="lg:col-span-1 lg:order-last relative lg:pb-12">
             <div className="relative lg:-mt-48 z-10 lg:sticky top-24 self-start">
               <div className="bg-white rounded-2xl border border-slate-200/60 shadow-2xl shadow-slate-900/5 overflow-hidden">
@@ -216,7 +218,9 @@ export default async function CourseDetails({
             </div>
           </div>
 
+          {/* main content */}
           <div className="lg:col-span-2 py-12 space-y-8">
+            {/* highlights */}
             <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm grid grid-cols-2 sm:grid-cols-4 gap-6">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-yellow-50 text-yellow-500 rounded-lg">
@@ -278,6 +282,7 @@ export default async function CourseDetails({
               </div>
             </div>
 
+            {/* contents */}
             <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-6">
                 Course Curriculum

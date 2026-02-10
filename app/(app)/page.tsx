@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Homepage from "@/components/home/Homepage";
+import Homepage from "../../components/Homepage";
 import { getCurrentUser } from "@/lib/auth";
 import { mapCourseToUI } from "@/lib/mappers/course";
 import { prisma } from "@/lib/prisma";

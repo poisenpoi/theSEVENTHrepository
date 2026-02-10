@@ -48,6 +48,7 @@ export default function ExperienceActions({ exp }: { exp: any }) {
         )}
       </div>
 
+      {/* Edit */}
       {editOpen && (
         <EditExperiencePopover
           experience={exp}
@@ -55,6 +56,7 @@ export default function ExperienceActions({ exp }: { exp: any }) {
         />
       )}
 
+      {/* Delete confirm */}
       <ConfirmDialog
         open={confirmOpen}
         title="Delete experience?"

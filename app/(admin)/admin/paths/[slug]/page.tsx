@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import BackButton from "@/components/ui/BackButton";
+import BackButton from "@/components/BackButton";
 import UpdatePathPopover from "@/components/admin/UpdatePath";
 import { PathUI } from "@/types/path.ui";
 import DeletePathButton from "@/components/admin/DeletePath";
