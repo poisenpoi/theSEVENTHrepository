@@ -5,6 +5,7 @@ import UpdateJobPopover from "@/components/jobs/UpdateJob";
 import DeleteJobButton from "@/components/jobs/DeleteJob";
 import Link from "next/link";
 import type { Metadata } from "next";
+import BackButton from "@/components/BackButton";
 import {
   Users,
   UserCheck,
