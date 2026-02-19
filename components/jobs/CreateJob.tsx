@@ -4,7 +4,7 @@ import { useActionState, useEffect, useState } from "react";
 import { createJobAction } from "@/actions/jobManagement";
 import { useRouter } from "next/navigation";
 import { JobCategory } from "@prisma/client";
-import { Plus, X } from "lucide-react";
+import { Plus } from "lucide-react";
 
 export default function CreateJobPopover({
   categories,
@@ -49,15 +49,6 @@ export default function CreateJobPopover({
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm">
           <div className="relative w-full max-w-2xl max-h-[90vh] rounded-2xl bg-white shadow-2xl flex flex-col overflow-hidden">
-            <div className="shrink-0 px-6 py-4 flex justify-end border-b border-slate-200">
-              <button
-                onClick={() => setOpen(false)}
-                className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
             <form
               id="job-form"
               action={formAction}
