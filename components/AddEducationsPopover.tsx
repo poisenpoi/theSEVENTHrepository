@@ -96,7 +96,7 @@ export default function AddEducationsPopover({
         createPortal(
           <div
             ref={popoverRef}
-            className="absolute z-50 w-80 bg-white border rounded-xl shadow-xl p-4 space-y-3"
+            className="absolute z-50 w-80 bg-white rounded-xl shadow-xl p-4 space-y-3"
             style={{ top: pos.top, left: pos.left }}
           >
             <div>
@@ -104,7 +104,7 @@ export default function AddEducationsPopover({
                 Institution <span className="text-red-500">*</span>
               </label>
               <input
-                className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                 value={form.institution}
                 onChange={(e) =>
                   setForm({ ...form, institution: e.target.value })
@@ -117,7 +117,7 @@ export default function AddEducationsPopover({
                 Degree
               </label>
               <input
-                className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                 value={form.degree}
                 onChange={(e) => setForm({ ...form, degree: e.target.value })}
               />
@@ -128,7 +128,7 @@ export default function AddEducationsPopover({
                 Field of Study
               </label>
               <input
-                className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                 value={form.fieldOfStudy}
                 onChange={(e) =>
                   setForm({ ...form, fieldOfStudy: e.target.value })
@@ -143,7 +143,7 @@ export default function AddEducationsPopover({
                 </label>
                 <input
                   type="date"
-                  className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                  className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                   value={form.startDate}
                   onChange={(e) =>
                     setForm({ ...form, startDate: e.target.value })
@@ -157,7 +157,7 @@ export default function AddEducationsPopover({
                 </label>
                 <input
                   type="date"
-                  className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                  className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                   value={form.endDate}
                   onChange={(e) =>
                     setForm({ ...form, endDate: e.target.value })
