@@ -87,13 +87,13 @@ export default function AddSkillPopover({
               value={value}
               onChange={(e) => setValue(e.target.value)}
               placeholder="e.g. React, Python"
-              className="w-full rounded-md px-3 py-2 text-sm shadow-sm"
+              className="w-full px-4 py-3 rounded-xl bg-slate-50 text-sm text-slate-800 border border-slate-200 focus:outline-none focus:border-[#2269e9] focus:bg-white focus:ring-2 focus:ring-[#2269e9]/10 transition-all"
             />
 
             <div className="mt-3 flex justify-end gap-2">
               <button
                 onClick={() => setOpen(false)}
-                className="text-sm text-gray-500"
+                className="text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors"
               >
                 Cancel
               </button>
@@ -104,7 +104,7 @@ export default function AddSkillPopover({
                   setValue("");
                   setOpen(false);
                 }}
-                className="px-3 py-1.5 text-sm bg-eduBlue text-white rounded-md"
+                className="px-4 py-2 text-sm bg-eduBlue text-white rounded-xl font-semibold hover:shadow-md transition-all"
               >
                 Add
               </button>
