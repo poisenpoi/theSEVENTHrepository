@@ -88,7 +88,7 @@ export default function AddExperiencePopover({
         createPortal(
           <div
             ref={popoverRef}
-            className="absolute z-9999 w-72 bg-white border rounded-xl shadow-xl p-4 space-y-3"
+            className="absolute z-9999 w-72 bg-white rounded-xl shadow-xl p-4 space-y-3"
             style={{
               top: pos.top,
               left: pos.left,
@@ -104,7 +104,7 @@ export default function AddExperiencePopover({
               <input
                 id="jobTitle"
                 required
-                className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                 value={form.jobTitle}
                 onChange={(e) => setForm({ ...form, jobTitle: e.target.value })}
               />
@@ -120,7 +120,7 @@ export default function AddExperiencePopover({
               <input
                 id="companyName"
                 required
-                className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                 value={form.companyName}
                 onChange={(e) =>
                   setForm({ ...form, companyName: e.target.value })
@@ -139,7 +139,7 @@ export default function AddExperiencePopover({
                 id="startDate"
                 type="date"
                 required
-                className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                 value={form.startDate}
                 onChange={(e) =>
                   setForm({ ...form, startDate: e.target.value })
@@ -157,7 +157,7 @@ export default function AddExperiencePopover({
               <input
                 id="endDate"
                 type="date"
-                className="mt-1 w-full border rounded px-3 py-2 text-sm"
+                className="mt-1 w-full rounded px-3 py-2 text-sm shadow-sm"
                 value={form.endDate}
                 onChange={(e) => setForm({ ...form, endDate: e.target.value })}
               />

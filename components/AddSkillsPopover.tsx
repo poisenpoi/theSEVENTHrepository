@@ -77,7 +77,7 @@ export default function AddSkillPopover({
         createPortal(
           <div
             ref={popoverRef}
-            className="skill-popover absolute z-9999 w-64 bg-white border rounded-xl shadow-xl p-4"
+            className="skill-popover absolute z-9999 w-64 bg-white rounded-xl shadow-xl p-4"
             style={{
               top: pos.top,
               left: pos.left,
@@ -87,7 +87,7 @@ export default function AddSkillPopover({
               value={value}
               onChange={(e) => setValue(e.target.value)}
               placeholder="e.g. React, Python"
-              className="w-full border rounded-md px-3 py-2 text-sm"
+              className="w-full rounded-md px-3 py-2 text-sm shadow-sm"
             />
 
             <div className="mt-3 flex justify-end gap-2">
