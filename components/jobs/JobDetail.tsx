@@ -96,7 +96,7 @@ export default function JobDetail({
               <Clock className="w-5 h-5" />
               Under Review
             </div>
-            <p className="text-sm text-blue-600 bg-blue-50 p-3 rounded-xl border border-blue-100 text-center">
+            <p className="text-sm text-eduBlue p-3 text-center">
               The company will be contacting you directly for further process.
             </p>
           </div>
